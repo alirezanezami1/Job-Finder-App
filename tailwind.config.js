@@ -10,7 +10,10 @@ export default {
         mobile: '428px',
       },
       colors: {
+        gray100: '#F5F5F5',
+        gray400: '#BDBDBD',
         gray600: '#757575',
+        primary500: '#246BFD',
       },
     },
   },
