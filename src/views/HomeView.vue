@@ -1,6 +1,7 @@
 <script setup>
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
+import BannerHome from '@/components/BannerHome.vue'
 </script>
 
 <template>
@@ -27,5 +28,8 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
       <input type="text" placeholder="عنوان شغلی یا شرکت" class="w-full bg-gray100 px-2 py-1" />
       <MagnifyingGlassIcon class="w-[20px] text-gray400" />
     </div>
+
+    <!-- /// Banner  -->
+    <BannerHome />
   </div>
 </template>
