@@ -1,8 +1,3 @@
-<script setup></script>
-
 <template>
-  <div class="w-mobile h-mobile bg-slate-500">
-    <h2 class="text-3xl font-vazir">سلام</h2>
-  </div>
-  <RouterView />
+  <RouterView class="w-mobile font-vazir bg-white border-4 px-6 py-4" dir="rtl" />
 </template>

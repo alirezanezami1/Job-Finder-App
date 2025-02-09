@@ -7,10 +7,10 @@ export default {
         vazir: ['Vazir', 'sans-serif'],
       },
       width: {
-        mobile: '375px',
+        mobile: '428px',
       },
-      height: {
-        mobile: '667px',
+      colors: {
+        gray600: '#757575',
       },
     },
   },
