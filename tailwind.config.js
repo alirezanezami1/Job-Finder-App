@@ -6,6 +6,12 @@ export default {
       fontFamily: {
         vazir: ['Vazir', 'sans-serif'],
       },
+      width: {
+        mobile: '375px',
+      },
+      height: {
+        mobile: '667px',
+      },
     },
   },
   plugins: [],
