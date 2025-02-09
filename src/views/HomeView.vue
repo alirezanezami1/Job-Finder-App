@@ -1,6 +1,4 @@
-<script setup>
-import { BeakerIcon } from '@heroicons/vue/24/solid'
-</script>
+<script setup></script>
 
 <template>
   <div class="flex flex-col justify-center items-center gap-6">
@@ -21,8 +19,6 @@ import { BeakerIcon } from '@heroicons/vue/24/solid'
     </div>
 
     <!-- /// search  -->
-    <div>
-      <BeakerIcon />
-    </div>
+    <div></div>
   </div>
 </template>
