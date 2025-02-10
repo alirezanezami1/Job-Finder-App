@@ -24,9 +24,13 @@ import BannerHome from '@/components/BannerHome.vue'
 
     <!-- /// search  -->
     <div class="w-full flex justify-center items-center gap-3 bg-gray100 px-5 py-2 rounded-2xl">
-      <AdjustmentsHorizontalIcon class="w-[20px] text-primary500" />
-      <input type="text" placeholder="عنوان شغلی یا شرکت" class="w-full bg-gray100 px-2 py-1" />
-      <MagnifyingGlassIcon class="w-[20px] text-gray400" />
+      <AdjustmentsHorizontalIcon class="w-[22px] text-primary500" />
+      <input
+        type="text"
+        placeholder="عنوان شغلی یا شرکت"
+        class="w-full bg-gray100 px-2 py-1 focus:outline-none"
+      />
+      <MagnifyingGlassIcon class="w-[22px] text-gray400" />
     </div>
 
     <!-- /// Banner  -->
