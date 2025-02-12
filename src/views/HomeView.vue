@@ -2,6 +2,7 @@
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
 import BannerHome from '@/components/BannerHome.vue'
+import Recommendation from '@/components/Recommendation.vue'
 </script>
 
 <template>
@@ -35,5 +36,8 @@ import BannerHome from '@/components/BannerHome.vue'
 
     <!-- /// Banner  -->
     <BannerHome />
+
+    <!-- /// Recommendation -->
+    <Recommendation />
   </div>
 </template>
