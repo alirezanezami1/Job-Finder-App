@@ -15,6 +15,7 @@ export default {
         gray600: '#757575',
         gray900: '#212121',
         primary500: '#246BFD',
+        error: '#F75555',
       },
     },
   },
