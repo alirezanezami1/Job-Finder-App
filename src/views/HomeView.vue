@@ -2,7 +2,6 @@
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
 import { BellIcon } from '@heroicons/vue/24/outline'
-import { UserIcon } from '@heroicons/vue/24/outline'
 import BannerHome from '@/components/BannerHome.vue'
 import Recommendation from '@/components/Recommendation.vue'
 </script>
