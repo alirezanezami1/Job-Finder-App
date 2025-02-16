@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://ee6ba7e61dd6d50f.mokky.dev/jobs'
+const API_URL = 'https://ee6ba7e61dd6d50f.mokky.dev'
 
 export const fetchJobs = async () => {
   try {
