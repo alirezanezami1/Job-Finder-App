@@ -25,7 +25,7 @@ defineProps({
         </p>
       </div>
     </div>
-    <div class="w-[24px]">
+    <div class="w-[24px] cursor-pointer">
       <BookmarkIcon class="text-primary500" />
     </div>
   </div>

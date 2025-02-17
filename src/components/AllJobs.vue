@@ -2,6 +2,7 @@
 import { fetchJobs } from '@/api/api'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import TitleHome from './TitleHome.vue'
+import JobDetails from './JobDetails.vue'
 import { onMounted, ref } from 'vue'
 
 const allJobs = ref([])
@@ -15,6 +16,7 @@ onMounted(() => {
   })
 })
 </script>
+
 <template>
   <div class="flex flex-col justify-center w-full items-center gap-6">
     <TitleHome />
@@ -27,9 +29,10 @@ onMounted(() => {
       <div
         v-for="job in allJobs"
         :key="job.id"
-        class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3"
-      ></div>
-      <JobDetails :jobProp="job" />
+        class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3 mb-5"
+      >
+        <JobDetails :jobProp="job" />
+      </div>
     </div>
   </div>
 </template>
