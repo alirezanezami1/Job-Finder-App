@@ -5,9 +5,11 @@ import 'swiper/swiper-bundle.css'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import { computed, ref } from 'vue'
 import JobDetails from './JobDetails.vue'
+import TitleHome from './TitleHome.vue'
 
 const jobs = ref([])
 const isLoading = ref(true)
+const titleTxt = ref('موقعیت های پیشنهادی')
 
 fetchJobs().then((data) => {
   jobs.value = data
@@ -15,16 +17,11 @@ fetchJobs().then((data) => {
 })
 
 const lastFiveJobs = computed(() => jobs.value.slice(-5))
-console.log(jobs.value)
 </script>
 
 <template>
   <div class="flex flex-col justify-center w-full items-center gap-6">
-    <div class="w-full">
-      <h5 class="text-[20px] relative text-right leading-[120%] font-bold text-gray900">
-        موقعیت های پیشنهادی
-      </h5>
-    </div>
+    <TitleHome :txt="titleTxt" />
 
     <div v-if="isLoading">
       <ClipLoader color="blue"></ClipLoader>

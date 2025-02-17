@@ -5,6 +5,7 @@ import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
 defineProps({
   jobProp: {
     type: Object,
+    required: true,
   },
 })
 </script>

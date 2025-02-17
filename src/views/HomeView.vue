@@ -4,6 +4,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
 import { BellIcon } from '@heroicons/vue/24/outline'
 import BannerHome from '@/components/BannerHome.vue'
 import RecommendationJob from '@/components/RecommendationJob.vue'
+import AllJobs from '@/components/AllJobs.vue'
 </script>
 
 <template>
@@ -46,5 +47,8 @@ import RecommendationJob from '@/components/RecommendationJob.vue'
 
     <!-- /// Recommendation -->
     <RecommendationJob />
+
+    <!-- /// AllJobs  -->
+    <AllJobs />
   </div>
 </template>
