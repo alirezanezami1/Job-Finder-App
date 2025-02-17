@@ -13,6 +13,7 @@ export default {
         gray100: '#F5F5F5',
         gray400: '#BDBDBD',
         gray600: '#757575',
+        gray700: '#616161',
         gray900: '#212121',
         primary500: '#246BFD',
         error: '#F75555',
