@@ -39,34 +39,34 @@ onMounted(() => {
   <div class="flex flex-col justify-center w-full items-center gap-6">
     <TitleHome />
 
-    <div
-      class="flex justify-start items-center flex-wrap gap-3 text-primary500 text-[14px] leading-[140%] font-semibold"
-    >
-      <button
-        @click="filterProjects('all')"
-        :class="[
-          'px-4 py-2 rounded-full bg-white border-[2.4px] border-primary500',
-          { active: selectedType === 'all' },
-        ]"
-      >
-        همه
-      </button>
-      <button
-        class="px-4 py-2 rounded-full bg-white border-[2.4px] border-primary500"
-        v-for="type in uniqueTypes"
-        :key="type"
-        @click="filterProjects(type)"
-        :class="{ active: selectedType === type }"
-      >
-        {{ type }}
-      </button>
-    </div>
-
     <div v-if="isLoading">
       <ClipLoader color="blue"></ClipLoader>
     </div>
 
-    <div v-else>
+    <div v-else class="flex flex-col justify-center items-center gap-6">
+      <div
+        class="flex justify-start items-center flex-wrap gap-3 text-primary500 text-[14px] leading-[140%] font-semibold"
+      >
+        <button
+          @click="filterProjects('all')"
+          :class="[
+            'px-4 py-2 rounded-full bg-white border-[2.4px] border-primary500',
+            { active: selectedType === 'all' },
+          ]"
+        >
+          همه
+        </button>
+        <button
+          class="px-4 py-2 rounded-full bg-white border-[2.4px] border-primary500"
+          v-for="type in uniqueTypes"
+          :key="type"
+          @click="filterProjects(type)"
+          :class="{ active: selectedType === type }"
+        >
+          {{ type }}
+        </button>
+      </div>
+
       <div
         v-for="job in filteredSlides"
         :key="job.id"
