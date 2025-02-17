@@ -1,5 +1,7 @@
 <script setup>
 import { fetchJobs } from '@/api/api'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/swiper-bundle.css'
 import { computed, ref } from 'vue'
 import { BookmarkIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
@@ -25,8 +27,8 @@ console.log(jobs.value)
     </div>
 
     <div v-if="isLoading" class="text-gray-500">در حال بارگذاری...</div>
-    <div v-else class="w-full">
-      <div
+    <swiper :slides-per-view="1" :space-between="50" v-else class="w-full">
+      <swiper-slide
         v-for="job in lastFiveJobs"
         :key="job.id"
         class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3"
@@ -37,7 +39,7 @@ console.log(jobs.value)
               <img :src="job.company.img" alt="Logo" />
             </div>
             <div class="flex flex-col justify-center items-start gap-2 w-[200px]">
-              <h5 class="font-bold text-[20px] leading-[120%] text-gray900">
+              <h5 class="font-bold text-[19px] leading-[120%] text-gray900">
                 {{ job.title }}
               </h5>
               <p class="font-medium text-[16px] leading-[140%] text-gray700">
@@ -49,7 +51,7 @@ console.log(jobs.value)
             <BookmarkIcon />
           </div>
         </div>
-      </div>
-    </div>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
