@@ -28,6 +28,9 @@ export default {
         primary500: '#246BFD',
         error: '#F75555',
       },
+      boxShadow: {
+        logo: '0 0 15px rgba(59, 130, 246, 1)',
+      },
     },
   },
   plugins: [],
