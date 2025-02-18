@@ -3,7 +3,7 @@
     <div class="w-full flex-1 overflow-y-auto px-4">
       <RouterView class="w-full font-vazir bg-white py-4" dir="rtl" />
     </div>
-    <NavbarMenu class="fixed bottom-0 w-full" style="max-width: 428px" />
+    <NavbarMenu />
   </div>
 </template>
 
