@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useRoute } from 'vue-router'
 import {
   HomeIcon,
   BookmarkIcon,
@@ -7,6 +8,11 @@ import {
   UserIcon,
 } from '@heroicons/vue/24/outline'
 import TemplateNavbar from './TemplateNavbar.vue'
+
+const route = useRoute()
+const isActive = (path) => {
+  return path === route.path
+}
 </script>
 
 <template>
@@ -15,13 +21,13 @@ import TemplateNavbar from './TemplateNavbar.vue'
   >
     <div class="flex justify-around items-center p-2">
       <RouterLink to="/">
-        <TemplateNavbar>
+        <TemplateNavbar :class="{ active: isActive('/') }">
           <HomeIcon class="w-6 h-6" />
           <span class="text-xs mt-1">خانه</span>
         </TemplateNavbar>
       </RouterLink>
       <RouterLink to="/bookmarks">
-        <TemplateNavbar>
+        <TemplateNavbar :class="{ active: isActive('/bookmarks') }">
           <BookmarkIcon class="w-6 h-6" />
           <span class="text-xs mt-1">ذخیره‌ها</span>
         </TemplateNavbar>
@@ -35,7 +41,7 @@ import TemplateNavbar from './TemplateNavbar.vue'
       </RouterLink>
 
       <RouterLink to="/messages">
-        <TemplateNavbar>
+        <TemplateNavbar :class="{ active: isActive('/messages') }">
           <ChatBubbleOvalLeftEllipsisIcon class="w-6 h-6" />
           <span class="text-xs mt-1">پیام‌ها</span>
         </TemplateNavbar>
@@ -49,7 +55,7 @@ import TemplateNavbar from './TemplateNavbar.vue'
   </nav>
 </template>
 <style scoped>
-.glow {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 1);
+.active {
+  color: #246bfd;
 }
 </style>
