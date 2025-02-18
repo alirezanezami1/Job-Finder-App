@@ -26,7 +26,7 @@ const lastFiveJobs = computed(() => jobs.value.slice(-5))
     <div v-if="isLoading">
       <ClipLoader color="blue"></ClipLoader>
     </div>
-    <swiper :slides-per-view="1" :space-between="50" v-else class="w-full">
+    <swiper :slides-per-view="1.1" :space-between="10" v-else class="w-full">
       <swiper-slide
         v-for="job in lastFiveJobs"
         :key="job.id"
