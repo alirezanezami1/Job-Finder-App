@@ -2,6 +2,8 @@
 import { BookmarkIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
 
+const emit = defineEmits(['update:isSaved'])
+
 defineProps({
   jobProp: {
     type: Object,
@@ -25,8 +27,9 @@ defineProps({
         </p>
       </div>
     </div>
-    <div class="w-[24px] cursor-pointer">
-      <BookmarkIcon class="text-primary500" />
+    <div class="w-[24px] cursor-pointer" @click="emit('update:isSaved', !jobProp.isSaved)">
+      <BookmarkIcon class="text-primary500" v-if="!jobProp.isSaved" />
+      <BookmarkSquareIcon class="text-primary500" v-else />
     </div>
   </div>
   <div class="flex flex-col justify-center items-center gap-[10px] pt-4">
