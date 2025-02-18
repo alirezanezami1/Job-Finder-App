@@ -6,8 +6,14 @@ export default {
       fontFamily: {
         vazir: ['Vazir', 'sans-serif'],
       },
+      screens: {
+        sm: '320px',
+        md: '375px',
+        lg: '428px',
+        xl: '480px',
+      },
       width: {
-        mobile: '428px',
+        mobile: '100vw',
       },
       colors: {
         gray100: '#F5F5F5',

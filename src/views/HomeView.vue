@@ -5,10 +5,11 @@ import { BellIcon } from '@heroicons/vue/24/outline'
 import BannerHome from '@/components/BannerHome.vue'
 import RecommendationJob from '@/components/RecommendationJob.vue'
 import AllJobs from '@/components/AllJobs.vue'
+import NavbarMenu from '@/components/NavbarMenu.vue'
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-6">
+  <div class="flex flex-col justify-center items-center gap-6 relative">
     <!-- /// profile  -->
     <div class="w-full flex justify-between items-center gap-4">
       <div class="flex justify-center items-center gap-4">
@@ -50,5 +51,8 @@ import AllJobs from '@/components/AllJobs.vue'
 
     <!-- /// AllJobs  -->
     <AllJobs />
+
+    <!-- /// Navbar  -->
+    <NavbarMenu />
   </div>
 </template>

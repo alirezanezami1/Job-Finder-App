@@ -30,7 +30,6 @@ onMounted(() => {
   fetchJobs().then((data) => {
     allJobs.value = data
     isLoading.value = false
-    console.log(allJobs.value)
   })
 })
 </script>

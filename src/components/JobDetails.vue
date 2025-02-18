@@ -16,7 +16,7 @@ defineProps({
       <div class="w-[64px] p-4 border rounded-2xl">
         <img :src="jobProp.company.img" alt="Logo" />
       </div>
-      <div class="flex flex-col justify-center items-start gap-2 w-[200px]">
+      <div class="flex flex-col justify-center items-start gap-2 w-[170px]">
         <h5 class="font-bold text-[19px] leading-[120%] text-gray900">
           {{ jobProp.title }}
         </h5>
