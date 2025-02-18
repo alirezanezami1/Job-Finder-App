@@ -27,11 +27,12 @@ import TemplateNavbar from './TemplateNavbar.vue'
         </TemplateNavbar>
       </RouterLink>
 
-      <div
+      <RouterLink
+        to="/"
         class="w-[60px] relative -top-10 p-2 bg-primary500 rounded-full cursor-pointer shadow-logo"
       >
         <img src="../assets/Logo2.PNG" class="rounded-full object-cover" alt="Logo" />
-      </div>
+      </RouterLink>
 
       <RouterLink to="/messages">
         <TemplateNavbar>
