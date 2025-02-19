@@ -6,6 +6,7 @@ import BannerHome from '@/components/BannerHome.vue'
 import RecommendationJob from '@/components/RecommendationJob.vue'
 import AllJobs from '@/components/AllJobs.vue'
 import NavbarMenu from '@/components/NavbarMenu.vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -26,10 +27,13 @@ import NavbarMenu from '@/components/NavbarMenu.vue'
           <h5 class="font-bold text-[20px] leading-[120%]">علیرضا نظامی</h5>
         </div>
       </div>
-      <div class="p-3 w-[48px] relative border-2 rounded-full flex justify-center items-center">
+      <RouterLink
+        to="/Notification"
+        class="p-3 w-[48px] relative border-2 rounded-full flex justify-center items-center"
+      >
         <BellIcon class="w-[24px]" />
         <div class="w-[6px] h-[6px] bg-error rounded-full absolute left-4 top-3"></div>
-      </div>
+      </RouterLink>
     </div>
 
     <!-- /// search  -->
