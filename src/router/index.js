@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import BookMarkView from '@/views/BookMarkView.vue'
 import MessagesView from '@/views/MessagesView.vue'
 import NotificationView from '@/views/NotificationView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/Notification',
       name: 'Notification',
       component: NotificationView,
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'notFound',
+      component: NotFoundView,
     },
   ],
 })
