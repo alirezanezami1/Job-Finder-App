@@ -1,3 +1,8 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 <template>
-  <div>f</div>
+  <div>
+    <img src="../assets/images/404-29.png" alt="404" />
+  </div>
 </template>
