@@ -1,7 +1,10 @@
 <script setup>
 import { BookmarkIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
+import { POSITION, useToast } from 'vue-toastification'
 import axios from 'axios'
+
+const toast = useToast()
 
 defineProps({
   jobProp: {
@@ -13,11 +16,23 @@ defineProps({
 const toggleSave = async (item) => {
   try {
     const updatedData = { isSaved: !item.isSaved }
+    item.isSaved = !item.isSaved
     await axios.patch(`https://ee6ba7e61dd6d50f.mokky.dev/jobs/${item.id}`, updatedData)
 
-    item.isSaved = !item.isSaved
+    if (item.isSaved) {
+      toast.success('با موفقیت ذخیره شد!', {
+        toastClassName: 'notificationCustomize',
+      })
+    } else {
+      toast.success('با موفقیت حذف شد!', {
+        toastClassName: 'notificationCustomize',
+      })
+    }
   } catch (error) {
-    console.error('خطا در به‌روزرسانی:', error)
+    toast.error('ارتباط با سرور قطع شد!', {
+      toastClassName: 'notificationCustomizeError',
+    })
+    console.log(error)
   }
 }
 </script>
@@ -56,3 +71,14 @@ const toggleSave = async (item) => {
     </div>
   </div>
 </template>
+<style>
+.notificationCustomize {
+  background-color: #246bfd !important;
+  color: white !important;
+  font-family: 'Vazir';
+  border-radius: 16px;
+}
+.notificationCustomizeError {
+  font-family: 'Vazir';
+}
+</style>
