@@ -32,7 +32,7 @@ const lastFiveJobs = computed(() => jobs.value.slice(-5))
         :key="job.id"
         class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3"
       >
-        <JobDetails :jobProp="job" @update:isSaved="(isSaved) => (job.isSaved = isSaved)" />
+        <JobDetails :jobProp="job" />
       </swiper-slide>
     </swiper>
   </div>

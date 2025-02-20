@@ -1,8 +1,7 @@
 <script setup>
 import { BookmarkIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
-
-const emit = defineEmits(['update:isSaved'])
+import axios from 'axios'
 
 defineProps({
   jobProp: {
@@ -10,6 +9,17 @@ defineProps({
     required: true,
   },
 })
+
+const toggleSave = async (item) => {
+  try {
+    const updatedData = { isSaved: !item.isSaved }
+    await axios.patch(`https://ee6ba7e61dd6d50f.mokky.dev/jobs/${item.id}`, updatedData)
+
+    item.isSaved = !item.isSaved
+  } catch (error) {
+    console.error('خطا در به‌روزرسانی:', error)
+  }
+}
 </script>
 
 <template>
@@ -27,7 +37,7 @@ defineProps({
         </p>
       </div>
     </div>
-    <div class="w-[24px] cursor-pointer" @click="emit('update:isSaved', !jobProp.isSaved)">
+    <div class="w-[24px] cursor-pointer" @click="toggleSave(jobProp)">
       <BookmarkIcon class="text-primary500" v-if="!jobProp.isSaved" />
       <BookmarkSquareIcon class="text-primary500" v-else />
     </div>
