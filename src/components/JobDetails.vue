@@ -1,7 +1,8 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 import { BookmarkIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
-import { POSITION, useToast } from 'vue-toastification'
+import { useToast } from 'vue-toastification'
 import axios from 'axios'
 
 const toast = useToast()
@@ -39,7 +40,7 @@ const toggleSave = async (item) => {
 
 <template>
   <div class="flex justify-around items-start gap-4 pb-4 border-b">
-    <div class="flex justify-center items-center gap-4">
+    <RouterLink :to="`/jobs/${jobProp.id}`" class="flex justify-center items-center gap-4">
       <div class="w-[64px] p-4 border rounded-2xl">
         <img :src="jobProp.company.img" alt="Logo" />
       </div>
@@ -51,7 +52,7 @@ const toggleSave = async (item) => {
           {{ jobProp.company.name }}
         </p>
       </div>
-    </div>
+    </RouterLink>
     <div class="w-[24px] cursor-pointer" @click="toggleSave(jobProp)">
       <BookmarkIcon class="text-primary500" v-if="!jobProp.isSaved" />
       <BookmarkSquareIcon class="text-primary500" v-else />
