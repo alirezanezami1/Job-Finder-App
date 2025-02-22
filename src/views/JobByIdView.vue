@@ -62,6 +62,53 @@ onMounted(async () => {
       </RouterLink>
     </div>
 
-    <div></div>
+    <div
+      class="flex flex-col justify-center w-full items-center gap-4 p-6 rounded-[32px] border border-gray300"
+    >
+      <div class="flex justify-center items-center">
+        <img
+          :src="job.company.img"
+          alt="Logo"
+          class="w-[92px] p-4 rounded-3xl border border-gray200"
+        />
+      </div>
+
+      <div
+        class="flex flex-col justify-center items-center gap-2 border-b border-gray200 pb-4 w-full"
+      >
+        <h4 class="font-bold text-[24px] leading-[120%] text-gray900">
+          {{ job.title }}
+        </h4>
+        <p class="font-semibold text-[18px] leading-[140%] text-primaryInfo">
+          {{ job.company.name }}
+        </p>
+      </div>
+
+      <div class="flex flex-col justify-center items-center gap-3">
+        <p class="font-medium text-gray700 text-[18px] leading-[140%]">
+          {{ job.location }}
+        </p>
+        <p class="font-semibold text-primary500 text-[18px] leading-[140%]">
+          {{ job.salary }} میلیون تومان / ماهانه
+        </p>
+        <div
+          class="px-[10px] py-[6px] rounded-md border border-gray600 font-semibold text-[10px] text-gray600"
+        >
+          {{ job.type }}
+        </div>
+        <p class="font-medium text-gray700 text-[14px] leading-[140%]">
+          این آگهی 10 روز پیش ثبت شده.
+        </p>
+      </div>
+    </div>
+
+    <!-- /// apply  -->
+    <div class="fixed bottom-0 z-10 w-mobile bg-white border-t border-gray100 p-6 pb-9">
+      <button
+        class="px-4 py-[18px] rounded-full flex justify-center items-center shadow-btn w-full bg-primary500 text-white text-[16px] leading-[140%] font-bold"
+      >
+        ثبت درخواست
+      </button>
+    </div>
   </div>
 </template>
