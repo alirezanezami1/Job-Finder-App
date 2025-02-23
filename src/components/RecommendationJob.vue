@@ -2,7 +2,7 @@
 import { fetchJobs } from '@/api/api'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper-bundle.css'
-import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import SkeletonTemplate from './SkeletonTemplate.vue'
 import { computed, ref } from 'vue'
 import JobDetails from './JobDetails.vue'
 import TitleHome from './TitleHome.vue'
@@ -24,7 +24,7 @@ const lastFiveJobs = computed(() => jobs.value.slice(-5))
     <TitleHome :txt="titleTxt" />
 
     <div v-if="isLoading">
-      <ClipLoader color="blue"></ClipLoader>
+      <SkeletonTemplate />
     </div>
     <swiper :slides-per-view="1.1" :space-between="10" v-else class="w-full">
       <swiper-slide
