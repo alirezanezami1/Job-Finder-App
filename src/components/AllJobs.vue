@@ -1,9 +1,9 @@
 <script setup>
 import { fetchJobs } from '@/api/api'
-import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import TitleHome from './TitleHome.vue'
 import JobDetails from './JobDetails.vue'
 import { onMounted, ref, computed } from 'vue'
+import SkeletonTemplate from './SkeletonTemplate.vue'
 
 const allJobs = ref([])
 const isLoading = ref(true)
@@ -39,7 +39,7 @@ onMounted(() => {
     <TitleHome />
 
     <div v-if="isLoading">
-      <ClipLoader color="blue"></ClipLoader>
+      <SkeletonTemplate />
     </div>
 
     <div v-else class="flex flex-col justify-center items-center gap-6">

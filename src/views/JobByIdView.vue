@@ -102,6 +102,14 @@ onMounted(async () => {
       </div>
     </div>
 
+    <div class="w-full flex flex-col justify-center items-start gap-4">
+      <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">توضیحات شغل:</h5>
+      <p class="text-[16px] leading-[140%] font-medium text-gray800 text-justify">
+        {{ job.description }}
+      </p>
+      <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">مزایا:</h5>
+    </div>
+
     <!-- /// apply  -->
     <div class="fixed bottom-0 z-10 w-mobile bg-white border-t border-gray100 p-6 pb-9">
       <button

@@ -26,6 +26,7 @@ export default {
         gray500: '#9E9E9E',
         gray600: '#757575',
         gray700: '#616161',
+        gray800: '#424242',
         gray900: '#212121',
         primary500: '#246BFD',
         primaryInfo: '#246BFD',
