@@ -1,6 +1,6 @@
 <script setup>
 import { fetchJobById } from '@/api/api'
-import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import SkeletonTemplateTwo from '@/components/SkeletonTemplateTwo.vue'
 import { BookmarkIcon, ArrowLeftIcon, ShareIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
 import { useRoute } from 'vue-router'
@@ -45,8 +45,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="isLoading" class="relative top-1/4">
-    <ClipLoader color="blue"></ClipLoader>
+  <div v-if="isLoading">
+    <SkeletonTemplateTwo />
   </div>
   <div v-else class="flex flex-col justify-center items-center gap-6 w-full">
     <div class="flex justify-between items-center py-3 w-full">
