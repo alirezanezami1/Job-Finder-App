@@ -14,4 +14,7 @@
     <div className="w-full h-[20px] bg-gray-200 rounded"></div>
     <div className="w-[80px] h-[24px] bg-gray-200 rounded-md"></div>
   </div>
+  <div
+    class="absolute top-0 left-[-100%] h-full w-full bg-gradient-to-r from-white/30 via-white/10 to-transparent"
+  ></div>
 </template>

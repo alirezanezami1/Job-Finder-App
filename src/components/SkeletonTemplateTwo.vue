@@ -41,4 +41,7 @@
       <div class="w-1/4 h-[20px] bg-gray-300 animate-pulse rounded"></div>
     </div>
   </div>
+  <div
+    class="absolute top-0 left-[-100%] h-full w-full bg-gradient-to-r from-white/30 via-white/10 to-transparent"
+  ></div>
 </template>
