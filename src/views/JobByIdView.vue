@@ -13,6 +13,12 @@ const id = route.params.id
 const job = ref({})
 const isLoading = ref(true)
 const toast = useToast()
+const benefitArray = ref([
+  { title: 'بیمه درمانی', imgLink: '/public/icons/Group.png' },
+  { title: ' برای عملکرد', imgLink: '/public/icons/Group3.png' },
+  { title: 'مرخصی با حقوق', imgLink: '/public/icons/Group6.png' },
+  { title: 'کمک هزینه حمل و نقل', imgLink: '/public/icons/Group5.png' },
+])
 
 const toggleSave = async (item) => {
   try {
@@ -102,12 +108,18 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="w-full flex flex-col justify-center items-start gap-4">
+    <div class="w-full flex flex-col justify-center items-start gap-6">
       <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">توضیحات شغل:</h5>
       <p class="text-[16px] leading-[140%] font-medium text-gray800 text-justify">
         {{ job.description }}
       </p>
       <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">مزایا:</h5>
+      <div class="flex flex-col justify-start items-start gap-3 pr-5">
+        <div class="flex justify-start items-start gap-3" v-for="icon in benefitArray" :key="icon">
+          <img :src="icon.imgLink" alt="icon" class="w-[20px] h-[20px] object-cover" />
+          <p class="font-medium text-[16px] leading-[140%] text-gray900">{{ icon.title }}</p>
+        </div>
+      </div>
     </div>
 
     <!-- /// apply  -->
