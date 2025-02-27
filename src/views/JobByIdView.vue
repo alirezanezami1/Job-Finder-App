@@ -68,7 +68,7 @@ onMounted(async () => {
   <div v-else class="flex flex-col justify-center items-center gap-6 w-full">
     <div class="flex justify-between items-center py-3 w-full">
       <div class="flex justify-center items-center gap-5">
-        <ShareIcon class="w-[28px]" />
+        <ShareIcon class="w-[28px] cursor-pointer" />
         <div class="w-[28px] cursor-pointer" @click="toggleSave(job)">
           <BookmarkIcon class="text-primary500" v-if="!job.isSaved" />
           <BookmarkSquareIcon class="text-primary500" v-else />
