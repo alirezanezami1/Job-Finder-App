@@ -14,11 +14,22 @@ const job = ref({})
 const isLoading = ref(true)
 const toast = useToast()
 const benefitArray = ref([
-  { title: 'بیمه درمانی', imgLink: '/public/icons/Group.png' },
-  { title: ' برای عملکرد', imgLink: '/public/icons/Group3.png' },
-  { title: 'مرخصی با حقوق', imgLink: '/public/icons/Group6.png' },
-  { title: 'کمک هزینه حمل و نقل', imgLink: '/public/icons/Group5.png' },
+  {
+    title: 'بیمه درمانی',
+    imgLink: '/public/icons/icons8-health-insurance-100.png',
+  },
+  { title: 'پاداش برای عملکرد', imgLink: '/public/icons/icons8-gift-100.png' },
+  { title: 'مرخصی با حقوق', imgLink: '/public/icons/icons8-sick-100.png' },
+  { title: 'کمک هزینه حمل و نقل', imgLink: '/public/icons/icons8-public-transportation-100.png' },
 ])
+
+const requiredSkills = [
+  'اخلاق حرفه ای',
+  'وقت شناس',
+  'مسئولیت پذیر',
+  'خلاق',
+  'آشنا با ابزارهای بروز',
+]
 
 const toggleSave = async (item) => {
   try {
@@ -113,12 +124,60 @@ onMounted(async () => {
       <p class="text-[16px] leading-[140%] font-medium text-gray800 text-justify">
         {{ job.description }}
       </p>
-      <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">مزایا:</h5>
-      <div class="flex flex-col justify-start items-start gap-3 pr-5">
+      <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">مزایا و تسهیلات:</h5>
+      <div class="flex flex-col justify-center items-start gap-3 pr-5">
         <div class="flex justify-start items-start gap-3" v-for="icon in benefitArray" :key="icon">
           <img :src="icon.imgLink" alt="icon" class="w-[20px] h-[20px] object-cover" />
           <p class="font-medium text-[16px] leading-[140%] text-gray900">{{ icon.title }}</p>
         </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-start gap-4">
+        <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">
+          مهارت های الزامی:
+        </h5>
+        <div class="flex flex-wrap justify-start items-center gap-3">
+          <div
+            v-for="item in requiredSkills"
+            :key="item"
+            class="border-2 border-primary500 text-primary500 rounded-full py-[6px] px-[16px] font-semibold text-[14px] leading-[140%]"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-start gap-4">
+        <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">نیازمندی ها:</h5>
+        <div class="flex flex-wrap justify-start items-center gap-3">
+          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+            <p class="text-[16px] leading-[140%] font-bold text-gray900">سطح مورد نیاز</p>
+            <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
+              {{ job.JobLevel }}
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+            <p class="text-[16px] leading-[140%] font-bold text-gray900">دسته بندی شغلی</p>
+            <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
+              {{ job.JobCategory }}
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+            <p class="text-[16px] leading-[140%] font-bold text-gray900">حداقل سابقه کار</p>
+            <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
+              {{ job.Experience }} سال
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+            <p class="text-[16px] leading-[140%] font-bold text-gray900">فضای خالی</p>
+            <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">2 نفر</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-start gap-4">
+        <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">درباره شرکت:</h5>
+        <p class="text-[16px] leading-[140%] font-medium text-gray900">{{ job.company.about }}</p>
       </div>
     </div>
 
