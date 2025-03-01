@@ -6,12 +6,14 @@ import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
 import { useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
 import axios from 'axios'
+import ShareComponent from '@/components/ShareComponent.vue'
 import { onMounted, ref } from 'vue'
 
 const route = useRoute()
 const id = route.params.id
 const job = ref({})
 const isLoading = ref(true)
+const showShareComponent = ref(false)
 const toast = useToast()
 const benefitArray = ref([
   {
@@ -54,6 +56,15 @@ const toggleSave = async (item) => {
   }
 }
 
+const closeShare = (event) => {
+  console.log('Close Share triggered')
+  console.log(event.target === event.currentTarget)
+
+  if (event.target === event.currentTarget) {
+    showShareComponent.value = false
+  }
+}
+
 onMounted(async () => {
   const getJob = await fetchJobById(id)
   job.value = getJob
@@ -68,7 +79,10 @@ onMounted(async () => {
   <div v-else class="flex flex-col justify-center items-center gap-6 w-full">
     <div class="flex justify-between items-center py-3 w-full">
       <div class="flex justify-center items-center gap-5">
-        <ShareIcon class="w-[28px] cursor-pointer" />
+        <ShareIcon
+          class="w-[28px] cursor-pointer"
+          @click="showShareComponent = !showShareComponent"
+        />
         <div class="w-[28px] cursor-pointer" @click="toggleSave(job)">
           <BookmarkIcon class="text-primary500" v-if="!job.isSaved" />
           <BookmarkSquareIcon class="text-primary500" v-else />
@@ -189,5 +203,8 @@ onMounted(async () => {
         ثبت درخواست
       </button>
     </div>
+
+    <!-- //// share  -->
+    <ShareComponent v-if="showShareComponent" @click="closeShare" />
   </div>
 </template>
