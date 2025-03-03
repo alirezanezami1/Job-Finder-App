@@ -1,6 +1,6 @@
 # Job-Finder
 
-Personal website (SSR) built for an SEO expert with nuxt and tailwind
+A job search software developed with Vue and Tailwind, with its backend powered by mokky.dev"
 
 
 
