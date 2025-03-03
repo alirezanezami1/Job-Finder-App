@@ -1,14 +1,17 @@
 # Job-Finder
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal website (SSR) built for an SEO expert with nuxt and tailwind
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
+  <img src="https://github.com/user-attachments/assets/8edd1f7a-4364-4bb8-9490-258fc68cf510" style="width:250px">
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+
+
+## Screenshots - (Home)
+<div>
+  <img src="https://github.com/user-attachments/assets/1d65b661-a5f8-49cf-83c7-3cd545071f9c" style="width: 100%; height: 100%"/>
+</div>
 
 ## Project Setup
 
