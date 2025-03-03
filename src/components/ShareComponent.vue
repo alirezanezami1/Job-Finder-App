@@ -18,7 +18,7 @@ const socialMedia = [
 
 const showModal = () => {
   toast.warning('این قابلیت هنوز توسعه داده نشده :(', {
-    toastClassName: 'notificationCustomizeError',
+    toastClassName: 'notificationCustomize',
   })
 }
 </script>

@@ -209,6 +209,6 @@ onMounted(async () => {
     ></div>
 
     <!-- کامپوننت ShareComponent -->
-    <ShareComponent v-if="showShareComponent" @click="closeShare" class="z-50" />
+    <ShareComponent v-if="showShareComponent" class="z-50" />
   </div>
 </template>
