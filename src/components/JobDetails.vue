@@ -81,5 +81,6 @@ const toggleSave = async (item) => {
 }
 .notificationCustomizeError {
   font-family: 'Vazir';
+  border-radius: 16px;
 }
 </style>

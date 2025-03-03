@@ -1,12 +1,12 @@
 <script setup>
-import { fetchJobById } from '@/api/api'
-import SkeletonTemplateTwo from '@/components/SkeletonTemplateTwo.vue'
+import { fetchJobById } from '@/api/api.js'
+import SkeletonTemplateTwo from '../components/SkeletonTemplateTwo.vue'
 import { BookmarkIcon, ArrowLeftIcon, ShareIcon } from '@heroicons/vue/24/outline'
 import { BookmarkSquareIcon } from '@heroicons/vue/24/solid'
 import { useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
 import axios from 'axios'
-import ShareComponent from '@/components/ShareComponent.vue'
+import ShareComponent from '../components/ShareComponent.vue'
 import { onMounted, ref } from 'vue'
 
 const route = useRoute()
@@ -57,9 +57,6 @@ const toggleSave = async (item) => {
 }
 
 const closeShare = (event) => {
-  console.log('Close Share triggered')
-  console.log(event.target === event.currentTarget)
-
   if (event.target === event.currentTarget) {
     showShareComponent.value = false
   }
@@ -76,7 +73,7 @@ onMounted(async () => {
   <div v-if="isLoading">
     <SkeletonTemplateTwo />
   </div>
-  <div v-else class="flex flex-col justify-center items-center gap-6 w-full">
+  <div v-else class="flex flex-col justify-center items-center gap-6 w-full bg-black">
     <div class="flex justify-between items-center py-3 w-full">
       <div class="flex justify-center items-center gap-5">
         <ShareIcon
@@ -204,7 +201,14 @@ onMounted(async () => {
       </button>
     </div>
 
-    <!-- //// share  -->
-    <ShareComponent v-if="showShareComponent" @click="closeShare" />
+    <!-- لایه خاکستری -->
+    <div
+      v-if="showShareComponent"
+      class="fixed inset-0 bg-gray-950 bg-opacity-80 z-40"
+      @click="closeShare"
+    ></div>
+
+    <!-- کامپوننت ShareComponent -->
+    <ShareComponent v-if="showShareComponent" @click="closeShare" class="z-50" />
   </div>
 </template>
