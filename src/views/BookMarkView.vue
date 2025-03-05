@@ -19,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center px-6 py-4 pb-12">
+  <div class="flex flex-col justify-center items-center px-6 py-4 pb-20">
     <div class="flex justify-between items-center w-full py-3 gap-3">
       <div class="flex justify-start items-center gap-4">
         <img src="../assets/Logo.PNG" alt="Logo" class="w-[58px]" />
@@ -31,6 +31,7 @@ onMounted(async () => {
       v-for="job in savedJobs"
       :key="job.id"
       class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3 mb-5"
+      v-auto-animate
     >
       <JobDetails :jobProp="job" />
     </div>

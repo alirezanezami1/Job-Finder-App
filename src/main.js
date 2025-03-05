@@ -4,6 +4,7 @@ import './assets/css/fonts.css'
 import { createApp } from 'vue'
 import Toast, { POSITION } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import App from './App.vue'
 import router from './router'
 
@@ -16,4 +17,4 @@ app.use(Toast, {
   rtl: true,
 })
 
-app.mount('#app')
+app.use(autoAnimatePlugin).mount('#app')
