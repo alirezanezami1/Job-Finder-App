@@ -164,26 +164,26 @@ onMounted(async () => {
 
       <div class="flex flex-col justify-center items-start gap-4">
         <h5 class="text-right text-[20px] leading-[120%] font-bold text-gray900">نیازمندی ها:</h5>
-        <div class="flex flex-wrap justify-start items-center gap-3">
-          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+        <div class="flex flex-wrap justify-start items-center gap-x-20 gap-y-4">
+          <div class="flex flex-col justify-center items-start gap-2 w-fit">
             <p class="text-[16px] leading-[140%] font-bold text-gray900">سطح مورد نیاز</p>
             <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
               {{ job.JobLevel }}
             </p>
           </div>
-          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+          <div class="flex flex-col justify-center items-start gap-2 w-fit">
             <p class="text-[16px] leading-[140%] font-bold text-gray900">دسته بندی شغلی</p>
             <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
               {{ job.JobCategory }}
             </p>
           </div>
-          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+          <div class="flex flex-col justify-center items-start gap-2 w-fit">
             <p class="text-[16px] leading-[140%] font-bold text-gray900">حداقل سابقه کار</p>
             <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">
               {{ job.Experience }} سال
             </p>
           </div>
-          <div class="flex flex-col justify-center items-start gap-2 w-[184px]">
+          <div class="flex flex-col justify-center items-start gap-2 w-fit">
             <p class="text-[16px] leading-[140%] font-bold text-gray900">فضای خالی</p>
             <p class="text-[16px] leading-[140%] font-medium text-primaryInfo">2 نفر</p>
           </div>
