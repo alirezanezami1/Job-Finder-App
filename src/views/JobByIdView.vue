@@ -73,7 +73,11 @@ onMounted(async () => {
   <div v-if="isLoading">
     <SkeletonTemplateTwo />
   </div>
-  <div v-else class="flex flex-col justify-center items-center gap-6 w-full bg-black">
+  <div
+    v-else
+    class="flex flex-col justify-center items-center gap-6 w-full bg-black"
+    v-auto-animate
+  >
     <div class="flex justify-between items-center py-3 w-full">
       <div class="flex justify-center items-center gap-5">
         <ShareIcon
