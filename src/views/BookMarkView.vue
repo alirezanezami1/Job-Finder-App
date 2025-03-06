@@ -1,6 +1,7 @@
 <script setup>
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import JobDetails from '@/components/JobDetails.vue'
+import SkeletonTemplate from '@/components/SkeletonTemplate.vue'
 import { fetchJobs } from '@/api/api.js'
 import { computed, onMounted, ref } from 'vue'
 import { EllipsisHorizontalCircleIcon } from '@heroicons/vue/24/outline'
@@ -19,7 +20,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center px-6 py-4 pb-20">
+  <div v-if="isLoading" class="pt-24">
+    <SkeletonTemplate />
+    <SkeletonTemplate />
+    <SkeletonTemplate />
+  </div>
+  <div class="flex flex-col justify-center items-center px-6 py-4 pb-20" v-else>
     <div class="flex justify-between items-center w-full py-3 gap-3">
       <div class="flex justify-start items-center gap-4">
         <img src="../assets/Logo.PNG" alt="Logo" class="w-[58px]" />
