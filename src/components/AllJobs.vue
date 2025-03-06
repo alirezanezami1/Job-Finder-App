@@ -66,12 +66,14 @@ onMounted(() => {
         </button>
       </div>
 
-      <div
-        v-for="job in filteredSlides"
-        :key="job.id"
-        class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3 mb-5"
-      >
-        <JobDetails :jobProp="job" />
+      <div v-auto-animate>
+        <div
+          v-for="job in filteredSlides"
+          :key="job.id"
+          class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3 mb-5"
+        >
+          <JobDetails :jobProp="job" />
+        </div>
       </div>
     </div>
   </div>
