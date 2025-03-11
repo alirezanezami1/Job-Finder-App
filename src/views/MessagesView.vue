@@ -1,3 +1,9 @@
+<script setup>
+import NavbarMenu from '@/components/NavbarMenu.vue'
+</script>
+
 <template>
-  <div></div>
+  <div class="flex flex-col justify-center items-center">
+    <NavbarMenu />
+  </div>
 </template>
