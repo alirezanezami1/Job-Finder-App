@@ -19,7 +19,7 @@ const toggleSave = async (item) => {
     const updatedData = { isSaved: !item.isSaved }
     item.isSaved = !item.isSaved
 
-    await axios.put(`https://ee6ba7e61dd6d50f.mokky.dev/jobs/${item.id}`, updatedData)
+    await axios.patch(`https://ee6ba7e61dd6d50f.mokky.dev/jobs/${item.id}`, updatedData)
 
     if (item.isSaved) {
       toast.success('با موفقیت ذخیره شد!', {
