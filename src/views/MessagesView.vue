@@ -4,6 +4,7 @@ import NavbarMenu from '@/components/NavbarMenu.vue'
 
 <template>
   <div class="flex flex-col justify-center items-center">
+    <h1>hi</h1>
     <NavbarMenu />
   </div>
 </template>
