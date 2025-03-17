@@ -7,6 +7,21 @@ import RecommendationJob from '@/components/RecommendationJob.vue'
 import AllJobs from '@/components/AllJobs.vue'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { RouterLink } from 'vue-router'
+import { computed } from 'vue'
+
+const greeting = computed(() => {
+  const hour = new Date().getHours()
+
+  if (hour >= 5 && hour < 12) {
+    return 'صبح بخیر'
+  } else if (hour >= 12 && hour < 16) {
+    return 'ظهر بخیر'
+  } else if (hour >= 16 && hour < 18) {
+    return 'عصر بخیر'
+  } else {
+    return 'شب بخیر'
+  }
+})
 </script>
 
 <template>
@@ -19,7 +34,7 @@ import { RouterLink } from 'vue-router'
         </div>
         <div class="flex flex-col gap-[6px]">
           <p class="text-gray600 flex justify-center items-center text-[16px] leading-[140%] gap-1">
-            صبح بخیر
+            {{ greeting }}
             <span>
               <img src="../assets/images/image.png" class="w-[20px]" />
             </span>
