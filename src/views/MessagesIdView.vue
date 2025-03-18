@@ -89,7 +89,6 @@ onMounted(async () => {
           type="text"
           class="w-full bg-transparent outline-none"
           placeholder="پیام خود را بنویسید"
-          disabled
         />
         <PaperClipIcon class="w-[26px] text-gray500 cursor-pointer" />
         <CameraIcon class="w-[26px] text-gray500 cursor-pointer" />
