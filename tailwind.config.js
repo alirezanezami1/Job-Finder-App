@@ -19,6 +19,7 @@ export default {
         'mobile-padding': '16px',
       },
       colors: {
+        gray50: '#FAFAFA',
         gray100: '#F5F5F5',
         gray200: '#EEEEEE',
         gray300: '#E0E0E0',
@@ -29,6 +30,7 @@ export default {
         gray800: '#424242',
         gray900: '#212121',
         primary500: '#246BFD',
+        primaryGradient: '#5089FF',
         primaryInfo: '#246BFD',
         error: '#F75555',
       },

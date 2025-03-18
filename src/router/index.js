@@ -5,7 +5,7 @@ import MessagesView from '@/views/MessagesView.vue'
 import NotificationView from '@/views/NotificationView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import JobByIdView from '@/views/JobByIdView.vue'
-
+import MessagesIdView from '@/views/MessagesIdView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,6 +23,11 @@ const router = createRouter({
       path: '/Messages',
       name: 'Messages',
       component: MessagesView,
+    },
+    {
+      path: '/Messages/:id',
+      name: 'MessagesId',
+      component: MessagesIdView,
     },
     {
       path: '/Notification',
