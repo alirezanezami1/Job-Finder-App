@@ -54,19 +54,22 @@ onMounted(() => {
   <div class="flex flex-col justify-center items-center px-6 py-4 pb-12 w-full">
     <div class="flex flex-col justify-center items-center gap-6 w-full">
       <!-- Navbar -->
-      <div class="flex justify-center items-center py-3 w-[380px]">
+      <div class="flex justify-center items-center py-3 w-[380px] relative">
         <div class="flex justify-start items-center w-[292px]">
           <RouterLink to="/">
             <img src="../assets/Logo.PNG" alt="Logo" class="w-[65px]" />
           </RouterLink>
         </div>
         <div class="flex justify-center items-center gap-5">
-          <div v-if="showSearch" class="w-full flex items-center gap-2">
+          <div
+            v-if="showSearch"
+            class="w-full flex items-center gap-2 px-4 py-2 rounded-lg absolute right-0 bg-gray100"
+          >
             <input
               v-model="searchQuery"
               type="text"
               placeholder="جستجو در چت‌ها..."
-              class="w-[200px] px-4 py-2 rounded-lg bg-gray100 focus:outline-none focus:ring-2 focus:ring-primary500"
+              class="w-full rounded-lg bg-transparent focus:outline-none"
             />
             <XMarkIcon
               class="w-[26px] cursor-pointer text-gray500 hover:text-gray700"
