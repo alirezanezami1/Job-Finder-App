@@ -5,7 +5,7 @@ import SkeletonTemplate from '@/components/SkeletonTemplate.vue'
 import EmptyComponent from '@/components/EmptyComponent.vue'
 import { fetchJobs } from '@/api/api.js'
 import { computed, onMounted, ref, watch } from 'vue'
-import { EllipsisHorizontalCircleIcon } from '@heroicons/vue/24/outline'
+import { EllipsisHorizontalCircleIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 
 const showEmpty = ref(false)
 const jobs = ref(null)
@@ -40,12 +40,23 @@ watch(savedJobs, () => {
       <SkeletonTemplate />
       <SkeletonTemplate />
     </div>
-    <div class="flex flex-col justify-center items-center px-6 py-4 pb-20" v-else>
+    <div class="flex flex-col justify-center items-center px-6 py-4 pb-20 gap-6" v-else>
       <div class="flex justify-between items-center w-full py-3 gap-3">
         <RouterLink to="/" class="flex justify-start items-center gap-4">
           <img src="../assets/Logo.PNG" alt="Logo" class="w-[58px]" />
         </RouterLink>
         <EllipsisHorizontalCircleIcon class="w-[28px]" />
+      </div>
+
+      <div
+        class="flex justify-center items-center gap-3 px-4 py-3 bg-gray100 rounded-2xl w-[335px]"
+      >
+        <MagnifyingGlassIcon class="w-[25px] text-gray400" />
+        <input
+          type="text"
+          placeholder="جستجوی کارها..."
+          class="w-full bg-transparent outline-none"
+        />
       </div>
 
       <div v-auto-animate>
