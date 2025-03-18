@@ -55,7 +55,7 @@
         class="animate-pulse w-[56px] h-[56px] rounded-full flex justify-center items-center gap-[10px] p-4 bg-gradient-to-l from-gray300 to-gray400"
       />
 
-      <div class="px-5 py-3 flex justify-center items-center gap-3 bg-gray50 rounded-2xl">
+      <div class="px-5 py-3 flex justify-center items-center gap-3 bg-gray50 rounded-2xl w-full">
         <div class="animate-pulse w-[26px] h-[26px] bg-gray300 rounded" />
         <div class="animate-pulse w-full h-[30px] bg-gray300 rounded" />
         <div class="animate-pulse w-[26px] h-[26px] bg-gray300 rounded" />
