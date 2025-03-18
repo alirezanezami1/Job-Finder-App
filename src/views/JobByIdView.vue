@@ -8,12 +8,14 @@ import { useToast } from 'vue-toastification'
 import axios from 'axios'
 import ShareComponent from '../components/ShareComponent.vue'
 import { onMounted, ref } from 'vue'
+import ApplyJobView from '../components/ApplyJobView.vue'
 
 const route = useRoute()
 const id = route.params.id
 const job = ref({})
 const isLoading = ref(true)
 const showShareComponent = ref(false)
+const showApplyJobView = ref(false)
 const toast = useToast()
 const benefitArray = ref([
   {
@@ -60,6 +62,12 @@ const toggleSave = async (item) => {
 const closeShare = (event) => {
   if (event.target === event.currentTarget) {
     showShareComponent.value = false
+  }
+}
+
+const closeApplyJobView = (event) => {
+  if (event.target === event.currentTarget) {
+    showApplyJobView.value = false
   }
 }
 
@@ -200,7 +208,8 @@ onMounted(async () => {
     <!-- /// apply  -->
     <div class="fixed bottom-0 z-10 w-mobile bg-white border-t border-gray100 p-6 pb-9">
       <button
-        class="px-4 py-[18px] rounded-full flex justify-center items-center shadow-btn w-full bg-primary500 text-white text-[16px] leading-[140%] font-bold"
+        class="px-4 py-[18px] rounded-full cursor-pointer flex justify-center items-center shadow-btn w-full bg-primary500 text-white text-[16px] leading-[140%] font-bold"
+        @click="showApplyJobView = true"
       >
         ثبت درخواست
       </button>
@@ -212,8 +221,14 @@ onMounted(async () => {
       class="fixed inset-0 bg-gray-950 bg-opacity-80 z-40"
       @click="closeShare"
     ></div>
+    <div
+      v-if="showApplyJobView"
+      class="fixed inset-0 bg-gray-950 bg-opacity-80 z-40"
+      @click="closeApplyJobView"
+    ></div>
 
     <!-- کامپوننت ShareComponent -->
     <ShareComponent v-if="showShareComponent" class="z-50" />
+    <ApplyJobView v-if="showApplyJobView" class="z-50" />
   </div>
 </template>
