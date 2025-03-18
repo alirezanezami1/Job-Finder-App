@@ -9,8 +9,14 @@ import { EllipsisHorizontalCircleIcon, MagnifyingGlassIcon } from '@heroicons/vu
 
 const showEmpty = ref(false)
 const jobs = ref(null)
+const searchQuery = ref('')
 const savedJobs = computed(() => {
-  return jobs.value ? jobs.value.filter((job) => job.isSaved) : []
+  return jobs.value
+    ? jobs.value.filter(
+        (job) =>
+          job.isSaved && job.company?.name?.toLowerCase().includes(searchQuery.value.toLowerCase()),
+      )
+    : []
 })
 const isLoading = ref(true)
 
@@ -21,7 +27,7 @@ onMounted(async () => {
 })
 
 watch(savedJobs, () => {
-  if (!savedJobs.value.length) {
+  if (!savedJobs.value.length && !searchQuery.value) {
     showEmpty.value = true
   } else {
     showEmpty.value = false
@@ -41,7 +47,7 @@ watch(savedJobs, () => {
       <SkeletonTemplate />
     </div>
     <div class="flex flex-col justify-center items-center px-6 py-4 pb-20 gap-6" v-else>
-      <div class="flex justify-between items-center w-full py-3 gap-3">
+      <div class="flex justify-between items-center w-full gap-3">
         <RouterLink to="/" class="flex justify-start items-center gap-4">
           <img src="../assets/Logo.PNG" alt="Logo" class="w-[58px]" />
         </RouterLink>
@@ -53,10 +59,15 @@ watch(savedJobs, () => {
       >
         <MagnifyingGlassIcon class="w-[25px] text-gray400" />
         <input
+          v-model="searchQuery"
           type="text"
           placeholder="جستجوی کارها..."
           class="w-full bg-transparent outline-none"
         />
+      </div>
+
+      <div v-if="!isLoading && savedJobs.length === 0" class="text-center py-8">
+        <p class="text-gray500 text-lg">نتیجه‌ای برای "{{ searchQuery }}" یافت نشد</p>
       </div>
 
       <div v-auto-animate>
