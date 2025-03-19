@@ -1,3 +1,10 @@
+<script setup>
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const id = route.params.id
+</script>
+
 <template>
   <div
     class="fixed w-mobile bottom-0 bg-white flex flex-col justify-center items-center gap-6 rounded-t-[60px] px-6 py-2 pb-9"
@@ -9,7 +16,7 @@
     <div class="flex justify-center items-center gap-3">
       <RouterLink
         class="flex w-[184px] justify-center items-center gap-[10px] px-4 py-[18px] rounded-full bg-primary100 text-primary500 font-bold text-[16px] leading-[140%]"
-        to="/"
+        :to="`/apply-with-cv/${id}`"
         >ثبت با رزومه پیوستی</RouterLink
       >
       <RouterLink
