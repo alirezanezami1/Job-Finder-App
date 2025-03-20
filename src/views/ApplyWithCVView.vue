@@ -1,12 +1,17 @@
 <script setup>
 import { ArrowRightIcon } from '@heroicons/vue/24/outline'
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const route = useRoute()
 const id = route.params.id
 const selectedFile = ref(null)
-const isSuccess = ref(true)
+const fullName = ref('')
+const email = ref('')
+
+const isSuccess = computed(() => {
+  return fullName.value && email.value && selectedFile.value
+})
 
 const handleFileChange = (event) => {
   const file = event.target.files[0]
@@ -50,6 +55,7 @@ const formatFileSize = (bytes) => {
       <div class="flex flex-col justify-center items-start gap-4 w-full">
         <p class="text-[16px] leading-[140%] font-medium text-gray900">نام و نام خانوادگی</p>
         <input
+          v-model="fullName"
           type="text"
           class="w-[380px] h-[56px] text-gray-500 px-5 rounded-2xl bg-gray50 focus:outline-none placeholder:text-gray500"
           placeholder="نام خود را وارد کنید"
@@ -59,6 +65,7 @@ const formatFileSize = (bytes) => {
       <div class="flex flex-col justify-center items-start gap-4 w-full">
         <p class="text-[16px] leading-[140%] font-medium text-gray900">ایمیل</p>
         <input
+          v-model="email"
           type="email"
           class="w-[380px] h-[56px] text-gray-500 px-5 rounded-2xl bg-gray50 focus:outline-none placeholder:text-gray500"
           placeholder="ایمیل خود را وارد کنید"
@@ -163,8 +170,14 @@ const formatFileSize = (bytes) => {
     <!-- submit button  -->
     <div class="fixed bottom-0 z-10 w-mobile bg-white border-t border-gray100 p-6 pb-9">
       <button
-        class="px-4 py-[18px] rounded-full cursor-pointer flex justify-center items-center shadow-btn w-full bg-primary500 text-white text-[16px] leading-[140%] font-bold"
-        :disabled="isSuccess"
+        type="button"
+        class="px-4 py-[18px] rounded-full flex justify-center items-center shadow-btn w-full text-[16px] leading-[140%] font-bold disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+        :class="[
+          isSuccess
+            ? 'bg-primary500 text-white cursor-pointer'
+            : 'bg-gray200 text-gray500 shadow-none cursor-not-allowed',
+        ]"
+        :disabled="!isSuccess"
       >
         ارسال
       </button>
