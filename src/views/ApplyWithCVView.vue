@@ -2,16 +2,28 @@
 import { ArrowRightIcon } from '@heroicons/vue/24/outline'
 import { useRoute } from 'vue-router'
 import { ref, computed } from 'vue'
+import SuccessApplyView from '../components/SuccessApplyView.vue'
 
 const route = useRoute()
 const id = route.params.id
 const selectedFile = ref(null)
 const fullName = ref('')
 const email = ref('')
+const showSuccessModal = ref(false)
 
 const isSuccess = computed(() => {
   return fullName.value && email.value && selectedFile.value
 })
+
+const handleSubmit = () => {
+  if (isSuccess.value) {
+    showSuccessModal.value = true
+  }
+}
+
+const handleCloseSuccess = () => {
+  showSuccessModal.value = false
+}
 
 const handleFileChange = (event) => {
   const file = event.target.files[0]
@@ -41,7 +53,7 @@ const formatFileSize = (bytes) => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-7 px-6 py-4 pb-12 w-full">
+  <div class="flex flex-col relative justify-center items-center gap-7 px-6 py-4 pb-12 w-full">
     <div class="flex flex-col justify-center items-center gap-6 pb-20">
       <!-- navbar  -->
       <div class="flex justify-start items-center gap-3 py-3 w-full">
@@ -178,9 +190,19 @@ const formatFileSize = (bytes) => {
             : 'bg-gray200 text-gray500 shadow-none cursor-not-allowed',
         ]"
         :disabled="!isSuccess"
+        @click="handleSubmit"
       >
         ارسال
       </button>
     </div>
+
+    <!-- Overlay -->
+    <div
+      v-if="showSuccessModal"
+      class="fixed inset-0 bg-gray900 bg-opacity-50 backdrop-blur-sm z-20"
+    ></div>
+
+    <!-- Success Modal -->
+    <SuccessApplyView v-if="showSuccessModal" class="z-30" @close="handleCloseSuccess" />
   </div>
 </template>
