@@ -6,6 +6,7 @@ import { ref } from 'vue'
 const route = useRoute()
 const id = route.params.id
 const selectedFile = ref(null)
+const isSuccess = ref(true)
 
 const handleFileChange = (event) => {
   const file = event.target.files[0]
@@ -163,6 +164,7 @@ const formatFileSize = (bytes) => {
     <div class="fixed bottom-0 z-10 w-mobile bg-white border-t border-gray100 p-6 pb-9">
       <button
         class="px-4 py-[18px] rounded-full cursor-pointer flex justify-center items-center shadow-btn w-full bg-primary500 text-white text-[16px] leading-[140%] font-bold"
+        :disabled="isSuccess"
       >
         ارسال
       </button>
