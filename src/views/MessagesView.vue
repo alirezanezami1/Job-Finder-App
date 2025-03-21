@@ -7,14 +7,14 @@ import {
   XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import { fetchJobs } from '@/api/api'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, nextTick } from 'vue'
 import SkeletonMessages from '@/components/SkeletonMessages.vue'
 
 const allJobs = ref([])
 const isLoading = ref(true)
 const showSearch = ref(false)
 const searchQuery = ref('')
-
+const searchInput = ref(null)
 const jobsFiltring = computed(() => {
   const firstFiveJobs = allJobs.value.slice(10, 15)
 
@@ -35,10 +35,13 @@ const toggleTab = () => {
   activeContactTab.value = !activeContactTab.value
 }
 
-const toggleSearch = () => {
+const toggleSearch = async () => {
   showSearch.value = !showSearch.value
   if (!showSearch.value) {
     searchQuery.value = ''
+  } else {
+    await nextTick()
+    searchInput.value?.focus()
   }
 }
 
@@ -67,6 +70,7 @@ onMounted(() => {
           >
             <input
               v-model="searchQuery"
+              ref="searchInput"
               type="text"
               placeholder="جستجو در چت‌ها..."
               class="w-full rounded-lg bg-transparent focus:outline-none"
