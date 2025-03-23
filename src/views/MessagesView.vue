@@ -60,7 +60,7 @@ onMounted(() => {
       <div class="flex justify-center items-center py-3 w-[380px] relative">
         <div class="flex justify-start items-center w-[292px]">
           <RouterLink to="/">
-            <img src="../assets/Logo.PNG" alt="Logo" class="w-[65px]" />
+            <img src="../assets/Logo.PNG" alt="Logo" class="w-[66px]" />
           </RouterLink>
         </div>
         <div class="flex justify-center items-center gap-5">
