@@ -67,7 +67,7 @@ const toggleSave = async (item) => {
       {{ jobProp.salary }} میلیون تومان / ماهانه
     </p>
     <div
-      class="px-[10px] py-[6px] rounded-md border border-gray600 font-semibold text-[10px] text-gray600"
+      class="px-[10px] py-[6px] rounded-md border border-gray600 font-semibold text-[11px] text-gray600"
     >
       {{ jobProp.type }}
     </div>
