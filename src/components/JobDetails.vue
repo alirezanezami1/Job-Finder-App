@@ -46,7 +46,7 @@ const toggleSave = async (item) => {
         <img :src="jobProp.company?.img" alt="Logo" />
       </div>
       <div class="flex flex-col justify-center items-start gap-2 w-[170px]">
-        <h5 class="font-bold text-[19px] leading-[120%] text-gray900">
+        <h5 class="font-bold text-[18px] leading-[120%] text-gray900">
           {{ jobProp.title }}
         </h5>
         <p class="font-medium text-[16px] leading-[140%] text-gray700">
