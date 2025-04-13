@@ -63,7 +63,7 @@ onMounted(async () => {
           <div
             class="flex justify-center items-end gap-[10px] px-6 py-4 bg-gray100 rounded-3xl w-[300px]"
           >
-            <p class="font-medium text-[18px] leading-[150%] text-gray900">
+            <p class="font-medium text-[18px] leading-[150%] text-gray900 z-50">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
               گرافیک است.
             </p>
@@ -71,6 +71,9 @@ onMounted(async () => {
             <div>
               <span class="text-gray500 text-[12px]">8:00</span>
             </div>
+            <div
+              class="absolute bottom-1 -right-0 w-8 h-8 bg-gray-100 rounded-br-[50%] transform rotate-45"
+            ></div>
           </div>
         </div>
       </div>
