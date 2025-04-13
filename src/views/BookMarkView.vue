@@ -13,8 +13,7 @@ const searchQuery = ref('')
 const savedJobs = computed(() => {
   return jobs.value
     ? jobs.value.filter(
-        (job) =>
-          job.isSaved && job.company?.name?.toLowerCase().includes(searchQuery.value.toLowerCase()),
+        (job) => job.isSaved && job.title?.toLowerCase().includes(searchQuery.value.toLowerCase()),
       )
     : []
 })
