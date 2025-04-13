@@ -29,9 +29,9 @@ const greeting = computed(() => {
     <!-- /// profile  -->
     <div class="w-full flex justify-between items-center gap-4">
       <div class="flex justify-center items-center gap-4">
-        <div>
+        <RouterLink to="/profile">
           <img src="../assets/images/user.png" alt="profile" class="w-[56px] h-[56px]" />
-        </div>
+        </RouterLink>
         <div class="flex flex-col gap-[6px]">
           <p class="text-gray600 flex justify-center items-center text-[16px] leading-[140%] gap-1">
             {{ greeting }}
