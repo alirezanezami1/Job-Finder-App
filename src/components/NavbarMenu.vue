@@ -47,10 +47,12 @@ const isActive = (path) => {
         </TemplateNavbar>
       </RouterLink>
 
-      <TemplateNavbar>
-        <UserIcon class="w-6 h-6" />
-        <span class="text-xs mt-1">پروفایل</span>
-      </TemplateNavbar>
+      <RouterLink to="/profile">
+        <TemplateNavbar>
+          <UserIcon class="w-6 h-6" />
+          <span class="text-xs mt-1">پروفایل</span>
+        </TemplateNavbar>
+      </RouterLink>
     </div>
   </nav>
 </template>

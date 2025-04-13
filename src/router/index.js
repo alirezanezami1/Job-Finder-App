@@ -7,6 +7,7 @@ import NotFoundView from '@/views/NotFoundView.vue'
 import JobByIdView from '@/views/JobByIdView.vue'
 import MessagesIdView from '@/views/MessagesIdView.vue'
 import ApplyWithCVView from '@/views/ApplyWithCVView.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/apply-with-cv/:id',
       name: 'applyWithCV',
       component: ApplyWithCVView,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
     },
     {
       path: '/:catchAll(.*)',
