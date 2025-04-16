@@ -17,5 +17,8 @@ import { RouterLink } from 'vue-router'
         <Cog6ToothIcon />
       </div>
     </div>
+
+    <!-- //// bottom  -->
+    <div class="flex justify-center items-center flex-col gap-6 w-full"></div>
   </div>
 </template>
