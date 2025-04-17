@@ -19,6 +19,13 @@ import { RouterLink } from 'vue-router'
     </div>
 
     <!-- //// bottom  -->
-    <div class="flex justify-center items-center flex-col gap-6 w-full"></div>
+    <div class="flex justify-center items-center flex-col gap-6 w-full">
+      <!-- //// img  -->
+      <div class="flex justify-between items-center gap-4 pb-6 border-b">
+        <div>
+          <img src="../assets/images/user.png" class="w-[80px]" alt="user" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
