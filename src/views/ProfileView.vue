@@ -29,7 +29,7 @@ import { RouterLink } from 'vue-router'
         <!-- //// name  -->
         <div class="flex flex-col justify-center items-start gap-2 w-[244px]">
           <h4 class="text-[24px] font-bold leading-[120%] text-gray900">علیرضا نظامی</h4>
-          <p class="text-[16px] leading-[140%] font-normal">Ui</p>
+          <p class="text-[16px] leading-[140%] font-normal text-gray700">Ui</p>
         </div>
 
         <div>
