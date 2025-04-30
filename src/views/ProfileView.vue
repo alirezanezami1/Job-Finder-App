@@ -33,7 +33,7 @@ import { RouterLink } from 'vue-router'
         </div>
 
         <div>
-          <PencilSquareIcon class="w-[24px] text-primary500" />
+          <PencilSquareIcon class="w-[24px] text-primary500 cursor-pointer" />
         </div>
       </div>
     </div>
