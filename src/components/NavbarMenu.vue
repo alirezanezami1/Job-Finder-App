@@ -48,7 +48,7 @@ const isActive = (path) => {
       </RouterLink>
 
       <RouterLink to="/profile">
-        <TemplateNavbar>
+        <TemplateNavbar :class="{ active: isActive('/profile') }">
           <UserIcon class="w-6 h-6" />
           <span class="text-xs mt-1">پروفایل</span>
         </TemplateNavbar>

@@ -1,6 +1,7 @@
 <script setup>
 import { Cog6ToothIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
 import { RouterLink } from 'vue-router'
+import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
 import { computed } from 'vue'
 
@@ -49,5 +50,7 @@ const currentPosition = computed(() => {
         </div>
       </div>
     </div>
+
+    <NavbarMenu />
   </div>
 </template>
