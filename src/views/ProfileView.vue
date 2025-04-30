@@ -1,5 +1,5 @@
 <script setup>
-import { Cog6ToothIcon } from '@heroicons/vue/24/outline'
+import { Cog6ToothIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -21,9 +21,19 @@ import { RouterLink } from 'vue-router'
     <!-- //// bottom  -->
     <div class="flex justify-center items-center flex-col gap-6 w-full">
       <!-- //// img  -->
-      <div class="flex justify-between items-center gap-4 pb-6 border-b">
+      <div class="flex justify-between items-center gap-4 pb-6 border-b w-full">
         <div>
           <img src="../assets/images/user.png" class="w-[80px]" alt="user" />
+        </div>
+
+        <!-- //// name  -->
+        <div class="flex flex-col justify-center items-start gap-2 w-[244px]">
+          <h4 class="text-[24px] font-bold leading-[120%] text-gray900">علیرضا نظامی</h4>
+          <p class="text-[16px] leading-[140%] font-normal">Ui</p>
+        </div>
+
+        <div>
+          <PencilSquareIcon class="w-[24px] text-primary500" />
         </div>
       </div>
     </div>
