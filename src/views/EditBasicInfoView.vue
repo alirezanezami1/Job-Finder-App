@@ -15,9 +15,9 @@ const { profile, updateProfileSection } = useProfile()
       <h4 class="text-[24px] leading-[120%] font-bold text-gray900">پروفایل</h4>
     </div>
 
-    <div class="flex flex-col justify-center items-center gap-5">
+    <div class="flex flex-col justify-center items-center gap-5 w-full">
       <!-- img  -->
-      <div class="flex justify-center items-center gap-5 pb-5 w-full">
+      <div class="flex justify-center items-center gap-5 pb-5 w-full border-b border-gray-200">
         <div class="flex justify-center items-center w-[160px] relative">
           <img
             src="../assets/images/45fa0d19-ec3d-46ec-aeb3-28837b61cb95.jpg"
@@ -25,9 +25,9 @@ const { profile, updateProfileSection } = useProfile()
             class="object-cover rounded-full"
           />
           <div
-            class="flex justify-center items-center w-[40px] bg-primary500 rounded-md p-[6px] py-2 absolute bottom-0 right-2"
+            class="flex justify-center items-center w-[40px] bg-primary500 rounded-lg p-[6px] absolute bottom-0 right-2"
           >
-            <PencilIcon class="w-[24px] text-white cursor-pointer" />
+            <PencilIcon class="w-[33px] text-white cursor-pointer" />
           </div>
         </div>
       </div>
