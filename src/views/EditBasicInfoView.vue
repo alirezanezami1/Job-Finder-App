@@ -1,7 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { ArrowRightIcon, PencilIcon } from '@heroicons/vue/24/outline'
+import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { useProfile } from '@/composables/useProfile'
+import { useToast } from 'vue-toastification'
+const toast = useToast()
+
+const showModal = () => {
+  toast.warning('فعلا بذار همین عکس بمونه خب 😁', {
+    toastClassName: 'notificationCustomize',
+  })
+}
 
 const { profile, updateProfileSection } = useProfile()
 </script>
@@ -27,7 +35,43 @@ const { profile, updateProfileSection } = useProfile()
           <div
             class="flex justify-center items-center w-[40px] bg-primary500 rounded-lg p-[6px] absolute bottom-0 right-2"
           >
-            <PencilIcon class="w-[33px] text-white cursor-pointer" />
+            <PencilIcon class="w-[33px] text-white cursor-pointer" @click="showModal" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-start items-start gap-4 w-full">
+        <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام</p>
+        <input
+          type="text"
+          class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
+          placeholder="نام شما"
+        />
+      </div>
+
+      <div class="flex flex-col justify-start items-start gap-4 w-full">
+        <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام خانوادگی</p>
+        <input
+          type="text"
+          class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
+          placeholder="نام خانوادگی شما"
+        />
+      </div>
+
+      <div class="flex flex-col justify-start items-start gap-4 w-full">
+        <p class="text-[16px] leading-[140%] text-gray800 font-normal">موقعیت فعلی</p>
+        <div class="relative w-full">
+          <select
+            name="currentPosition"
+            id="positions"
+            class="flex px-5 pl-8 py-4 rounded-2xl bg-gray50 w-full focus:outline-none appearance-none"
+          >
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="Front-End Developer">Front-End Developer</option>
+            <option value="Back-End Developer">Back-End Developer</option>
+          </select>
+          <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none w-[24px]">
+            <ChevronDownIcon />
           </div>
         </div>
       </div>
