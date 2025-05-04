@@ -8,7 +8,7 @@ import JobByIdView from '@/views/JobByIdView.vue'
 import MessagesIdView from '@/views/MessagesIdView.vue'
 import ApplyWithCVView from '@/views/ApplyWithCVView.vue'
 import ProfileView from '@/views/ProfileView.vue'
-import EditProfileView from '@/views/EditProfileView.vue'
+import EditBasicInfoView from '@/views/EditBasicInfoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,9 +54,9 @@ const router = createRouter({
       component: ProfileView,
     },
     {
-      path: '/edit-profile',
+      path: '/editProfile/:section',
       name: 'editProfile',
-      component: EditProfileView,
+      component: EditBasicInfoView,
     },
     {
       path: '/:catchAll(.*)',
