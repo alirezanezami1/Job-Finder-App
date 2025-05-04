@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { useProfile } from '@/composables/useProfile'
+import SaveBtnView from '../components/SaveBtnView.vue'
 import { useToast } from 'vue-toastification'
 const toast = useToast()
 
@@ -64,7 +65,7 @@ const { profile, updateProfileSection } = useProfile()
           <select
             name="currentPosition"
             id="positions"
-            class="flex px-5 pl-8 py-4 rounded-2xl bg-gray50 w-full focus:outline-none appearance-none"
+            class="flex px-5 pl-8 py-4 rounded-2xl cursor-pointer bg-gray50 w-full focus:outline-none appearance-none"
           >
             <option value="UI/UX Designer">UI/UX Designer</option>
             <option value="Front-End Developer">Front-End Developer</option>
@@ -76,5 +77,7 @@ const { profile, updateProfileSection } = useProfile()
         </div>
       </div>
     </div>
+
+    <SaveBtnView />
   </div>
 </template>
