@@ -30,7 +30,11 @@ const greeting = computed(() => {
     <div class="w-full flex justify-between items-center gap-4">
       <div class="flex justify-center items-center gap-4">
         <RouterLink to="/profile">
-          <img src="../assets/images/user.png" alt="profile" class="w-[56px] h-[56px]" />
+          <img
+            src="../assets/images/45fa0d19-ec3d-46ec-aeb3-28837b61cb95.jpg"
+            alt="profile"
+            class="w-[56px] h-[56px] rounded-full"
+          />
         </RouterLink>
         <div class="flex flex-col gap-[6px]">
           <p class="text-gray600 flex justify-center items-center text-[16px] leading-[140%] gap-1">

@@ -1,10 +1,11 @@
 <script setup>
 import { Cog6ToothIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
 import { computed } from 'vue'
 
+const router = useRouter()
 const { profile } = useProfile()
 
 const fullName = computed(() => {
@@ -14,6 +15,10 @@ const fullName = computed(() => {
 const currentPosition = computed(() => {
   return `${profile.value.basicInfo.currentPosition}`.trim()
 })
+
+const goToEditProfile = (section) => {
+  router.push({ name: 'editProfile', params: { section } })
+}
 </script>
 
 <template>
@@ -36,7 +41,11 @@ const currentPosition = computed(() => {
       <!-- //// img  -->
       <div class="flex justify-between items-center gap-4 pb-6 border-b w-full">
         <div>
-          <img src="../assets/images/user.png" class="w-[80px]" alt="user" />
+          <img
+            src="../assets/images/45fa0d19-ec3d-46ec-aeb3-28837b61cb95.jpg"
+            class="w-[80px] rounded-full"
+            alt="user"
+          />
         </div>
 
         <!-- //// name  -->
@@ -46,7 +55,9 @@ const currentPosition = computed(() => {
         </div>
 
         <div>
-          <PencilSquareIcon class="w-[24px] text-primary500 cursor-pointer" />
+          <button @click="goToEditProfile('basicInfo')">
+            <PencilSquareIcon class="w-[24px] text-primary500 cursor-pointer" />
+          </button>
         </div>
       </div>
     </div>
