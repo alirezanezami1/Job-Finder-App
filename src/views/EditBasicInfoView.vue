@@ -4,15 +4,40 @@ import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/o
 import { useProfile } from '@/composables/useProfile'
 import SaveBtnView from '../components/SaveBtnView.vue'
 import { useToast } from 'vue-toastification'
+import { useRoute, useRouter } from 'vue-router'
+const { profile, updateProfileSection } = useProfile()
+
 const toast = useToast()
+const router = useRouter()
+const route = useRoute()
+
+const section = route.params.section || 'basicInfo'
+console.log(section)
+
+const form = ref({
+  firstName: profile.value.basicInfo.firstName,
+  lastName: profile.value.basicInfo.lastName,
+  currentPosition: profile.value.basicInfo.currentPosition,
+})
+
+const saveProfile = () => {
+  updateProfileSection('basicInfo', {
+    ...profile.value.basicInfo,
+    firstName: form.value.firstName,
+    lastName: form.value.lastName,
+    currentPosition: form.value.currentPosition,
+  })
+  router.push({ name: 'profile' })
+  toast.success('تغییرات با موفقیت ذخیره شد!', {
+    toastClassName: 'notificationCustomize',
+  })
+}
 
 const showModal = () => {
   toast.warning('فعلا بذار همین عکس بمونه خب 😁', {
     toastClassName: 'notificationCustomize',
   })
 }
-
-const { profile, updateProfileSection } = useProfile()
 </script>
 
 <template>
@@ -45,6 +70,7 @@ const { profile, updateProfileSection } = useProfile()
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام</p>
         <input
           type="text"
+          v-model="form.firstName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام شما"
         />
@@ -54,6 +80,7 @@ const { profile, updateProfileSection } = useProfile()
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام خانوادگی</p>
         <input
           type="text"
+          v-model="form.lastName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام خانوادگی شما"
         />
@@ -64,6 +91,7 @@ const { profile, updateProfileSection } = useProfile()
         <div class="relative w-full">
           <select
             name="currentPosition"
+            v-model="form.currentPosition"
             id="positions"
             class="flex px-5 pl-8 py-4 rounded-2xl cursor-pointer bg-gray50 w-full focus:outline-none appearance-none"
           >
@@ -78,6 +106,6 @@ const { profile, updateProfileSection } = useProfile()
       </div>
     </div>
 
-    <SaveBtnView />
+    <SaveBtnView @click="saveProfile" />
   </div>
 </template>

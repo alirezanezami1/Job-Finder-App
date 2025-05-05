@@ -5,7 +5,7 @@ export function useProfile() {
     basicInfo: {
       firstName: 'علیرضا',
       lastName: 'نظامی',
-      currentPosition: 'Front End developer',
+      currentPosition: 'Front-End Developer',
       summary: '',
     },
 
