@@ -1,4 +1,5 @@
 <script setup>
+import componentProfile from '@/components/componentProfile.vue'
 import { Cog6ToothIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
 import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
@@ -60,6 +61,17 @@ const goToEditProfile = (section) => {
           </button>
         </div>
       </div>
+
+      <!-- //// contact information  -->
+      <componentProfile>
+        <div class="flex justify-between items-center gap-3 w-full border-b border-gray-200 pb-5">
+          <img src="/public/icons/icons8-user-100.png" alt="user" class="w-[24px]" />
+          <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
+            اطلاعات تماس
+          </h5>
+          <PencilSquareIcon class="w-[24px] text-primary500" />
+        </div>
+      </componentProfile>
     </div>
 
     <NavbarMenu />
