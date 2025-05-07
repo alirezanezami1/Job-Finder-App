@@ -1,6 +1,6 @@
 <script setup>
 import componentProfile from '@/components/componentProfile.vue'
-import { Cog6ToothIcon, PencilSquareIcon } from '@heroicons/vue/24/outline'
+import { Cog6ToothIcon, PencilSquareIcon, MapPinIcon } from '@heroicons/vue/24/outline'
 import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
@@ -70,6 +70,12 @@ const goToEditProfile = (section) => {
             اطلاعات تماس
           </h5>
           <PencilSquareIcon class="w-[24px] text-primary500" />
+        </div>
+
+        <div class="flex flex-col justify-center items-start gap-3 pr-[2px]">
+          <div class="flex justify-center items-center gap-5">
+            <MapPinIcon class="w-[20px]" />
+          </div>
         </div>
       </componentProfile>
     </div>
