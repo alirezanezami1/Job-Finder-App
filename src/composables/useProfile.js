@@ -18,7 +18,7 @@ export function useProfile() {
 
     workExperience: [
       {
-        title: '',
+        title: 'project 1',
         company: '',
         startDate: '',
         endDate: '',
