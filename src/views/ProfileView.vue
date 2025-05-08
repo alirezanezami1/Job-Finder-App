@@ -23,16 +23,20 @@ const currentPosition = computed(() => {
   return `${profile.value.basicInfo.currentPosition}`.trim()
 })
 
+const summary = computed(() => {
+  return `${profile.value.basicInfo.summary}`.trim()
+})
+
 const address = computed(() => {
-  return `${profile.value.contactInfo.address}`
+  return `${profile.value.contactInfo.address}`.trim()
 })
 
 const phone = computed(() => {
-  return `${profile.value.contactInfo.phone}`
+  return `${profile.value.contactInfo.phone}`.trim()
 })
 
 const email = computed(() => {
-  return `${profile.value.contactInfo.email}`
+  return `${profile.value.contactInfo.email}`.trim()
 })
 
 const goToEditProfile = (section) => {
@@ -104,6 +108,18 @@ const goToEditProfile = (section) => {
             <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ email }}</p>
           </div>
         </div>
+      </componentProfile>
+
+      <!-- //// summary  -->
+      <componentProfile>
+        <div class="flex justify-between items-center gap-3 w-full border-b border-gray-200 pb-5">
+          <img src="/public/icons/icons8-document-100.png" alt="user" class="w-[24px]" />
+          <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
+            درباره من
+          </h5>
+          <PencilSquareIcon class="w-[24px] text-primary500" />
+        </div>
+        <p class="text-[16px] leading-[140%] text-gray800 font-medium">{{ summary }}</p>
       </componentProfile>
     </div>
 

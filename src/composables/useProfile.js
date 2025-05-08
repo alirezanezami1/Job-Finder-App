@@ -6,7 +6,8 @@ export function useProfile() {
       firstName: 'علیرضا',
       lastName: 'نظامی',
       currentPosition: 'Front-End Developer',
-      summary: '',
+      summary:
+        'برنامه‌نویس فرانت‌اند با ۳ سال تجربه‌ی کاری در توسعه‌ی رابط‌های کاربری مدرن و واکنش‌گرا. علاقه‌مند به ایجاد تجربه‌های کاربری جذاب و بهینه‌سازی عملکرد وب‌سایت‌ها و اپلیکیشن‌های تحت وب. متخصص در Vue.js و مسلط به HTML، CSS، JavaScript و مفاهیم توسعه فرانت‌اند.',
     },
 
     contactInfo: {
