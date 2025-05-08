@@ -1,6 +1,12 @@
 <script setup>
 import componentProfile from '@/components/componentProfile.vue'
-import { Cog6ToothIcon, PencilSquareIcon, MapPinIcon } from '@heroicons/vue/24/outline'
+import {
+  Cog6ToothIcon,
+  PencilSquareIcon,
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+} from '@heroicons/vue/24/outline'
 import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
@@ -15,6 +21,18 @@ const fullName = computed(() => {
 
 const currentPosition = computed(() => {
   return `${profile.value.basicInfo.currentPosition}`.trim()
+})
+
+const address = computed(() => {
+  return `${profile.value.contactInfo.address}`
+})
+
+const phone = computed(() => {
+  return `${profile.value.contactInfo.phone}`
+})
+
+const email = computed(() => {
+  return `${profile.value.contactInfo.email}`
 })
 
 const goToEditProfile = (section) => {
@@ -72,9 +90,18 @@ const goToEditProfile = (section) => {
           <PencilSquareIcon class="w-[24px] text-primary500" />
         </div>
 
-        <div class="flex flex-col justify-center items-start gap-3 pr-[2px]">
-          <div class="flex justify-center items-center gap-5">
+        <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">
+          <div class="flex justify-center items-start gap-4">
             <MapPinIcon class="w-[20px]" />
+            <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ address }}</p>
+          </div>
+          <div class="flex justify-center items-start gap-4">
+            <PhoneIcon class="w-[20px]" />
+            <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ phone }}</p>
+          </div>
+          <div class="flex justify-center items-start gap-4">
+            <EnvelopeIcon class="w-[20px]" />
+            <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ email }}</p>
           </div>
         </div>
       </componentProfile>
