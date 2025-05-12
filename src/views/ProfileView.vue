@@ -8,16 +8,12 @@ import {
   EnvelopeIcon,
   LightBulbIcon,
 } from '@heroicons/vue/24/outline'
-import DatePicker from 'vue3-persian-datetime-picker'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
 import { computed } from 'vue'
-
-const date = ref('')
-console.log(date.value)
 
 const router = useRouter()
 const { profile } = useProfile()
@@ -49,14 +45,6 @@ const email = computed(() => {
 const goToEditProfile = (section) => {
   router.push({ name: 'editProfile', params: { section } })
 }
-
-watch(
-  () => date.value,
-  (value, oldValue) => {
-    console.log(value)
-    console.log(oldValue)
-  },
-)
 </script>
 
 <template>
@@ -155,8 +143,6 @@ watch(
         </div>
       </div>
     </componentProfile>
-
-    <date-picker v-model="date" simple></date-picker>
 
     <NavbarMenu />
   </div>
