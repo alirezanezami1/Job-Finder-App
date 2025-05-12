@@ -6,11 +6,18 @@ import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
+  LightBulbIcon,
 } from '@heroicons/vue/24/outline'
+import DatePicker from 'vue3-persian-datetime-picker'
+import { ref, watch } from 'vue'
+
 import { useRouter } from 'vue-router'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { useProfile } from '../composables/useProfile'
 import { computed } from 'vue'
+
+const date = ref('')
+console.log(date.value)
 
 const router = useRouter()
 const { profile } = useProfile()
@@ -42,10 +49,18 @@ const email = computed(() => {
 const goToEditProfile = (section) => {
   router.push({ name: 'editProfile', params: { section } })
 }
+
+watch(
+  () => date.value,
+  (value, oldValue) => {
+    console.log(value)
+    console.log(oldValue)
+  },
+)
 </script>
 
 <template>
-  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-12 w-full">
+  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-12 w-full mb-24">
     <!-- //// up  -->
     <div class="flex justify-between items-center gap-3 w-full py-3">
       <div class="flex justify-start items-center gap-4 w-[340px]">
@@ -122,6 +137,26 @@ const goToEditProfile = (section) => {
         <p class="text-[16px] leading-[140%] text-gray800 font-medium">{{ summary }}</p>
       </componentProfile>
     </div>
+
+    <!-- //// work experience -->
+    <componentProfile>
+      <div class="flex justify-between items-center gap-3 w-full border-b border-gray-200 pb-5">
+        <img src="/public/icons/icons8-work-100.png" alt="user" class="w-[24px]" />
+        <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
+          تجربه کاری
+        </h5>
+        <PencilSquareIcon class="w-[24px] text-primary500" />
+      </div>
+
+      <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">
+        <div class="flex justify-center items-start gap-4">
+          <MapPinIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ address }}</p>
+        </div>
+      </div>
+    </componentProfile>
+
+    <date-picker v-model="date" simple></date-picker>
 
     <NavbarMenu />
   </div>

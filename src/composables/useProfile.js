@@ -18,8 +18,8 @@ export function useProfile() {
 
     workExperience: [
       {
-        title: 'project 1',
-        company: '',
+        title: 'فرانت اند دولوپر (vue)',
+        company: 'فلان شرکت',
         startDate: '',
         endDate: '',
         currently: false,
