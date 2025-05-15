@@ -48,7 +48,7 @@ const goToEditProfile = (section) => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-12 w-full">
+  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-10 w-full">
     <!-- //// up  -->
     <div class="flex justify-between items-center gap-3 w-full py-3">
       <div class="flex justify-start items-center gap-4 w-[340px]">
