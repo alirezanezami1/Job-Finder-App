@@ -10,6 +10,7 @@ import {
   HomeModernIcon,
   CalendarDaysIcon,
   ClockIcon,
+  ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/vue/24/outline'
 import { ref } from 'vue'
 
@@ -177,6 +178,11 @@ const goToEditProfile = (section) => {
         <div class="flex justify-center items-start gap-4">
           <ClockIcon class="w-[20px]" />
           <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.type }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <ChatBubbleBottomCenterTextIcon class="w-[50px]" />
+          <p class="text-[16px] leading-[140%] text-gray800 font-normal">{{ work.description }}</p>
         </div>
       </div>
     </componentProfile>
