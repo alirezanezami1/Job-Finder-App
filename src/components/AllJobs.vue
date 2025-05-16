@@ -4,11 +4,13 @@ import TitleHome from './TitleHome.vue'
 import JobDetails from './JobDetails.vue'
 import { onMounted, ref, computed } from 'vue'
 import SkeletonTemplate from './SkeletonTemplate.vue'
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/24/outline'
 
 const allJobs = ref([])
 const isLoading = ref(true)
-
 const selectedType = ref('all')
+const showAll = ref(false)
+const itemsPerPage = 5
 
 const uniqueTypes = computed(() => {
   const types = allJobs.value.map((job) => job.type)
@@ -16,11 +18,25 @@ const uniqueTypes = computed(() => {
 })
 
 const filteredSlides = computed(() => {
-  if (selectedType.value === 'all') {
-    return allJobs.value
+  let filtered =
+    selectedType.value === 'all'
+      ? allJobs.value
+      : allJobs.value.filter((job) => job.type === selectedType.value)
+
+  if (selectedType.value === 'all' && !showAll.value) {
+    filtered = filtered.slice(0, itemsPerPage)
   }
-  return allJobs.value.filter((job) => job.type === selectedType.value)
+
+  return filtered
 })
+
+const showMoreButton = computed(() => {
+  return selectedType.value === 'all' && allJobs.value.length > itemsPerPage
+})
+
+const toggleShowAll = () => {
+  showAll.value = !showAll.value
+}
 
 const filterProjects = (type) => {
   selectedType.value = type
@@ -35,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full items-center gap-6">
+  <div class="flex flex-col justify-center w-full items-center gap-6 mb-14">
     <TitleHome />
 
     <div v-if="isLoading">
@@ -66,7 +82,7 @@ onMounted(() => {
         </button>
       </div>
 
-      <div v-auto-animate>
+      <div v-auto-animate class="w-full">
         <div
           v-for="job in filteredSlides"
           :key="job.id"
@@ -74,6 +90,16 @@ onMounted(() => {
         >
           <JobDetails :jobProp="job" />
         </div>
+
+        <button
+          v-if="showMoreButton"
+          @click="toggleShowAll"
+          class="w-full py-3 flex justify-between items-center px-3 text-primary500 font-medium hover:text-blue-800 transition-colors"
+        >
+          {{ showAll ? 'مشاهده کمتر' : 'مشاهده بیشتر' }}
+          <ChevronDownIcon v-if="!showAll" class="w-[20px]" />
+          <ChevronUpIcon v-if="showAll" class="w-[20px]" />
+        </button>
       </div>
     </div>
   </div>
