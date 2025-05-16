@@ -7,6 +7,9 @@ import {
   PhoneIcon,
   EnvelopeIcon,
   LightBulbIcon,
+  HomeModernIcon,
+  CalendarDaysIcon,
+  ClockIcon,
 } from '@heroicons/vue/24/outline'
 import { ref } from 'vue'
 
@@ -42,13 +45,17 @@ const email = computed(() => {
   return `${profile.value.contactInfo.email}`.trim()
 })
 
+const workExperience = computed(() => {
+  return profile.value.workExperience
+})
+
 const goToEditProfile = (section) => {
   router.push({ name: 'editProfile', params: { section } })
 }
 </script>
 
 <template>
-  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-12 w-full">
+  <div class="flex flex-col justify-center gap-6 items-center px-6 pt-4 pb-12 w-full mb-32">
     <!-- //// up  -->
     <div class="flex justify-between items-center gap-3 w-full py-3">
       <div class="flex justify-start items-center gap-4 w-[340px]">
@@ -136,10 +143,40 @@ const goToEditProfile = (section) => {
         <PencilSquareIcon class="w-[24px] text-primary500" />
       </div>
 
-      <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">
+      <div
+        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full"
+        :class="{
+          'border-b border-gray-300 pb-5':
+            workExperience.indexOf(work) !== workExperience.length - 1,
+        }"
+        v-for="work in workExperience"
+        :key="work"
+      >
+        <div class="flex justify-center items-start gap-4">
+          <LightBulbIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.title }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <HomeModernIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.company }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <CalendarDaysIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.startDate }}</p>
+          <span>تا</span>
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.endDate }}</p>
+        </div>
+
         <div class="flex justify-center items-start gap-4">
           <MapPinIcon class="w-[20px]" />
-          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ address }}</p>
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.location }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <ClockIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ work.type }}</p>
         </div>
       </div>
     </componentProfile>
