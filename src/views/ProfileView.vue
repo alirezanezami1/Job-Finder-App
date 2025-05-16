@@ -11,6 +11,8 @@ import {
   CalendarDaysIcon,
   ClockIcon,
   ChatBubbleBottomCenterTextIcon,
+  CodeBracketIcon,
+  LinkIcon,
 } from '@heroicons/vue/24/outline'
 import { ref } from 'vue'
 
@@ -48,6 +50,10 @@ const email = computed(() => {
 
 const workExperience = computed(() => {
   return profile.value.workExperience
+})
+
+const projects = computed(() => {
+  return profile.value.projects
 })
 
 const goToEditProfile = (section) => {
@@ -183,6 +189,54 @@ const goToEditProfile = (section) => {
         <div class="flex justify-center items-start gap-4">
           <ChatBubbleBottomCenterTextIcon class="w-[50px]" />
           <p class="text-[16px] leading-[140%] text-gray800 font-normal">{{ work.description }}</p>
+        </div>
+      </div>
+    </componentProfile>
+
+    <!-- //// projects  -->
+    <componentProfile>
+      <div class="flex justify-between items-center gap-3 w-full border-b border-gray-200 pb-5">
+        <img src="/public/icons/icons8-chart-100 (1).png" alt="user" class="w-[30px]" />
+        <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
+          پروژه ها
+        </h5>
+        <PencilSquareIcon class="w-[24px] text-primary500" />
+      </div>
+
+      <div
+        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full"
+        :class="{
+          'border-b border-gray-300 pb-5': projects.indexOf(project) !== projects.length - 1,
+        }"
+        v-for="project in projects"
+        :key="project"
+      >
+        <div class="flex justify-center items-start gap-4">
+          <CodeBracketIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ project.name }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <ChatBubbleBottomCenterTextIcon class="w-[38px]" />
+          <p class="text-[16px] leading-[140%] text-gray800 font-normal">
+            {{ project.description }}
+          </p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <CalendarDaysIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ project.startDate }}</p>
+          <span>تا</span>
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ project.endDate }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <LinkIcon class="w-[20px]" />
+          <a
+            class="text-[16px] leading-[140%] text-primary500 font-normal underline hover:no-underline"
+            :href="project.link"
+            >لینک پروژه</a
+          >
         </div>
       </div>
     </componentProfile>
