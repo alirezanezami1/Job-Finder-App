@@ -20,12 +20,12 @@ export function useProfile() {
       {
         title: 'فرانت اند دولوپر (vue)',
         company: 'فلان شرکت',
-        startDate: '',
-        endDate: '',
+        startDate: '1404/1/1',
+        endDate: '1404/3/1',
         currently: false,
-        description: '',
-        type: '',
-        location: '',
+        description: 'من در فلان شرکت به مدت فلان سال/ماه در نقش فرانت اند دولوپر فعالیت داشتم.',
+        type: 'پاره وقت',
+        location: 'tehran',
       },
     ],
 
