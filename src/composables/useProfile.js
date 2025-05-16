@@ -41,12 +41,12 @@ export function useProfile() {
 
     projects: [
       {
-        name: '',
-        description: '',
-        startDate: '',
-        endDate: '',
+        name: 'پروژه فلان',
+        description: 'پروژه فلان با فلان تکنولوژی و فلان کتابخانه توسعه داده شده.',
+        startDate: '1403/09/17',
+        endDate: '1404/2/07',
         currently: false,
-        link: '',
+        link: 'https://github.com/alirezanezami1',
       },
     ],
   })
