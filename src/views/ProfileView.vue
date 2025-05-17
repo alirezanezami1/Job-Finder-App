@@ -235,6 +235,7 @@ const goToEditProfile = (section) => {
           <a
             class="text-[16px] leading-[140%] text-primary500 font-normal underline hover:no-underline"
             :href="project.link"
+            target="_blank"
             >لینک پروژه</a
           >
         </div>
