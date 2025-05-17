@@ -96,7 +96,7 @@ const goToEditProfile = (section) => {
 
         <div>
           <button @click="goToEditProfile('basicInfo')">
-            <PencilSquareIcon class="w-[24px] text-primary500 cursor-pointer" />
+            <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
           </button>
         </div>
       </div>
@@ -108,7 +108,7 @@ const goToEditProfile = (section) => {
           <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
             اطلاعات تماس
           </h5>
-          <PencilSquareIcon class="w-[24px] text-primary500" />
+          <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
         </div>
 
         <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">
@@ -134,7 +134,7 @@ const goToEditProfile = (section) => {
           <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
             درباره من
           </h5>
-          <PencilSquareIcon class="w-[24px] text-primary500" />
+          <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
         </div>
         <p class="text-[16px] leading-[140%] text-gray800 font-medium">{{ summary }}</p>
       </componentProfile>
@@ -147,7 +147,7 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           تجربه کاری
         </h5>
-        <PencilSquareIcon class="w-[24px] text-primary500" />
+        <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
       </div>
 
       <div
@@ -200,7 +200,7 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           پروژه ها
         </h5>
-        <PencilSquareIcon class="w-[24px] text-primary500" />
+        <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
       </div>
 
       <div
