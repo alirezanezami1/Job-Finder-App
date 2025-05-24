@@ -84,7 +84,7 @@ onMounted(async () => {
   </div>
   <div
     v-else
-    class="flex flex-col justify-center items-center gap-6 w-full bg-black"
+    class="flex flex-col justify-center items-center gap-6 w-full bg-black mb-24"
     v-auto-animate
   >
     <div class="flex justify-between items-center py-3 w-full">
