@@ -11,6 +11,10 @@ const toast = useToast()
 const router = useRouter()
 const route = useRoute()
 
+const goBack = () => {
+  router.back()
+}
+
 const section = route.params.section || 'basicInfo'
 console.log(section)
 
@@ -43,9 +47,9 @@ const showModal = () => {
 <template>
   <div class="flex flex-col justify-center items-center px-6 pb-12 pt-4 gap-7">
     <div class="flex justify-start items-center gap-4 w-full">
-      <RouterLink to="/" class="w-[28px]">
+      <button @click="goBack" class="w-[28px]">
         <ArrowRightIcon class="text-gray900" />
-      </RouterLink>
+      </button>
       <h4 class="text-[24px] leading-[120%] font-bold text-gray900">پروفایل</h4>
     </div>
 
