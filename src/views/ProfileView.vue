@@ -108,7 +108,10 @@ const goToEditProfile = (section) => {
           <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
             اطلاعات تماس
           </h5>
-          <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
+          <PencilSquareIcon
+            @click="goToEditProfile('contactInfo')"
+            class="w-[30px] text-primary500 cursor-pointer"
+          />
         </div>
 
         <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">

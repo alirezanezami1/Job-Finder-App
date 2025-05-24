@@ -54,7 +54,7 @@ const router = createRouter({
       component: ProfileView,
     },
     {
-      path: '/edit-Profile/:section',
+      path: '/edit-Profile/basicInfo',
       name: 'editProfile',
       component: EditBasicInfoView,
     },
