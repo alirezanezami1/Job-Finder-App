@@ -1,14 +1,22 @@
 <script setup>
 import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
-import { MapPinIcon } from '@heroicons/vue/24/solid'
+import { MapPinIcon, EnvelopeIcon } from '@heroicons/vue/24/solid'
 import { useRouter } from 'vue-router'
+import { useProfile } from '../composables/useProfile'
 import { useToast } from 'vue-toastification'
 import { ref, computed } from 'vue'
 import SaveBtnView from '@/components/SaveBtnView.vue'
+const { profile } = useProfile()
+
+const contactInfo = ref({
+  email: profile.value.contactInfo.email,
+  phone: profile.value.contactInfo.phone,
+  address: profile.value.contactInfo.address,
+})
 
 const toast = useToast()
 const router = useRouter()
-const searchQuery = ref('')
+const searchQuery = ref(contactInfo.value.address || '')
 const showDropdown = ref(false)
 
 const iranianCities = [
@@ -54,6 +62,7 @@ const filteredCities = computed(() => {
 
 const selectCity = (city) => {
   searchQuery.value = city
+  contactInfo.value.address = city
   showDropdown.value = false
 }
 
@@ -87,6 +96,7 @@ const goBack = () => {
             class="flex gap-3 px-5 pr-10 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
             placeholder="شهر محل زندگی خود را وارد کنید"
             @focus="showDropdown = true"
+            @input="contactInfo.address = searchQuery"
           />
           <MapPinIcon class="absolute w-[20px] top-1/2 right-3 -translate-y-1/2" />
 
@@ -113,6 +123,7 @@ const goBack = () => {
       <div class="relative w-full">
         <input
           type="tel"
+          v-model="contactInfo.phone"
           class="flex gap-3 px-5 text-right py-4 pl-[100px] rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="شماره همراه خود را وارد کنید"
           maxlength="10"
@@ -128,6 +139,19 @@ const goBack = () => {
           <ChevronDownIcon class="w-[16px] cursor-pointer" @click="showModal" />
           <span class="text-gray-400">+98</span>
         </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-start items-start gap-4 w-full">
+      <p class="text-[16px] leading-[140%] text-gray800 font-normal">ایمیل</p>
+      <div class="relative w-full">
+        <input
+          type="email"
+          v-model="contactInfo.email"
+          class="flex gap-3 px-5 py-4 pr-10 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
+          placeholder="ایمیل خود را وارد کنید"
+        />
+        <EnvelopeIcon class="absolute w-[20px] top-1/2 right-3 -translate-y-1/2" />
       </div>
     </div>
 
