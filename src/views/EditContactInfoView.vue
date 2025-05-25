@@ -1,30 +1,66 @@
 <script setup>
-import { ArrowRightIcon } from '@heroicons/vue/24/outline'
+import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { MapPinIcon } from '@heroicons/vue/24/solid'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 import { ref, computed } from 'vue'
+import SaveBtnView from '@/components/SaveBtnView.vue'
 
+const toast = useToast()
 const router = useRouter()
 const searchQuery = ref('')
 const showDropdown = ref(false)
 
 const iranianCities = [
-  'تهران', 'مشهد', 'اصفهان', 'کرج', 'شیراز', 'تبریز', 'قم', 'اهواز', 'کرمانشاه',
-  'ارومیه', 'رشت', 'زاهدان', 'همدان', 'کرمان', 'یزد', 'اردبیل', 'بندرعباس', 'اراک',
-  'زنجان', 'ساری', 'قزوین', 'گرگان', 'خرم‌آباد', 'سنندج', 'بجنورد', 'بیرجند', 'سمنان',
-  'شهرکرد', 'یاسوج', 'ایلام', 'بوشهر'
+  'تهران',
+  'مشهد',
+  'اصفهان',
+  'کرج',
+  'شیراز',
+  'تبریز',
+  'قم',
+  'اهواز',
+  'کرمانشاه',
+  'ارومیه',
+  'رشت',
+  'زاهدان',
+  'همدان',
+  'کرمان',
+  'یزد',
+  'اردبیل',
+  'بندرعباس',
+  'اراک',
+  'زنجان',
+  'ساری',
+  'قزوین',
+  'گرگان',
+  'خرم‌آباد',
+  'سنندج',
+  'بجنورد',
+  'بیرجند',
+  'سمنان',
+  'شهرکرد',
+  'یاسوج',
+  'ایلام',
+  'بوشهر',
 ]
 
 const filteredCities = computed(() => {
   if (!searchQuery.value) return []
-  return iranianCities.filter(city => 
-    city.toLowerCase().includes(searchQuery.value.toLowerCase())
+  return iranianCities.filter((city) =>
+    city.toLowerCase().includes(searchQuery.value.toLowerCase()),
   )
 })
 
 const selectCity = (city) => {
   searchQuery.value = city
   showDropdown.value = false
+}
+
+const showModal = () => {
+  toast.warning('در حال حاضر فقط کشور ایران ساپورت میشه!', {
+    toastClassName: 'notificationCustomize',
+  })
 }
 
 const goBack = () => {
@@ -53,9 +89,9 @@ const goBack = () => {
             @focus="showDropdown = true"
           />
           <MapPinIcon class="absolute w-[20px] top-1/2 right-3 -translate-y-1/2" />
-          
+
           <!-- Dropdown for cities -->
-          <div 
+          <div
             v-if="showDropdown && filteredCities.length > 0"
             class="absolute top-full left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-y-auto z-10"
           >
@@ -71,6 +107,31 @@ const goBack = () => {
         </div>
       </div>
     </div>
+
+    <div class="flex flex-col justify-start items-start gap-4 w-full">
+      <p class="text-[16px] leading-[140%] text-gray800 font-normal">شماره تماس</p>
+      <div class="relative w-full">
+        <input
+          type="tel"
+          class="flex gap-3 px-5 text-right py-4 pl-[100px] rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
+          placeholder="شماره همراه خود را وارد کنید"
+          maxlength="10"
+        />
+        <div
+          class="absolute top-1/2 left-3 -translate-y-1/2 flex flex-row-reverse justify-center items-center gap-2"
+        >
+          <img
+            src="../assets/images/343a77fd6e46e281a22bc8a60574d921.jpg"
+            alt="flag"
+            class="w-[24px] h-[18px] object-cover"
+          />
+          <ChevronDownIcon class="w-[16px] cursor-pointer" @click="showModal" />
+          <span class="text-gray-400">+98</span>
+        </div>
+      </div>
+    </div>
+
+    <SaveBtnView />
   </div>
 </template>
 
