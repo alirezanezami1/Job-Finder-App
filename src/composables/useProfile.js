@@ -13,7 +13,7 @@ export function useProfile() {
     contactInfo: {
       email: 'nezamialireza1022@gmail.com',
       phone: '+989154901022',
-      address: 'Mashhad / Bojnord',
+      address: 'مشهد - بجنورد',
     },
 
     workExperience: [
