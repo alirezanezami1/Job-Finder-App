@@ -10,6 +10,9 @@ import ApplyWithCVView from '@/views/ApplyWithCVView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import EditBasicInfoView from '@/views/EditBasicInfoView.vue'
 import EditContactInfoView from '@/views/EditContactInfoView.vue'
+import EditProjectsInfoView from '@/views/EditProjectsInfoView.vue'
+import EditSummaryInfoView from '@/views/EditSummaryInfoView.vue'
+import EditWorkExpView from '@/views/EditWorkExpView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,14 +58,30 @@ const router = createRouter({
       component: ProfileView,
     },
     {
-      path: '/editProfile/:section',
-      name: 'editProfile',
+      path: '/editProfile/basicInfo',
+      name: 'editBasicInfo',
       component: EditBasicInfoView,
     },
     {
-      path: '/editProfile/:section',
-      name: 'editProfile',
+      path: '/editProfile/contactInfo',
+      name: 'editContactInfo',
       component: EditContactInfoView,
+    },
+    {
+      path: '/editProfile/projects',
+      name: 'editProjects',
+      component: EditProjectsInfoView,
+    },
+
+    {
+      path: '/editProfile/workExperience',
+      name: 'editWorkExperience',
+      component: EditWorkExpView,
+    },
+    {
+      path: '/editProfile/summary',
+      name: 'editSummary',
+      component: EditSummaryInfoView,
     },
     {
       path: '/:catchAll(.*)',

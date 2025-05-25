@@ -57,7 +57,14 @@ const projects = computed(() => {
 })
 
 const goToEditProfile = (section) => {
-  router.push({ name: 'editProfile', params: { section } })
+  const routeNames = {
+    basicInfo: 'editBasicInfo',
+    contactInfo: 'editContactInfo',
+    projects: 'editProjects',
+    workExperience: 'editWorkExperience',
+    summary: 'editSummary',
+  }
+  router.push({ name: routeNames[section], params: { section } })
 }
 </script>
 
