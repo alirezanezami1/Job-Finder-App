@@ -12,7 +12,7 @@ export function useProfile() {
 
     contactInfo: {
       email: 'nezamialireza1022@gmail.com',
-      phone: '+989154901022',
+      phone: '9154901022',
       address: 'مشهد - بجنورد',
     },
 
