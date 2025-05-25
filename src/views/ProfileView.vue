@@ -108,10 +108,9 @@ const goToEditProfile = (section) => {
           <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
             اطلاعات تماس
           </h5>
-          <PencilSquareIcon
-            @click="goToEditProfile('contactInfo')"
-            class="w-[30px] text-primary500 cursor-pointer"
-          />
+          <button @click="goToEditProfile('contactInfo')">
+            <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+          </button>
         </div>
 
         <div class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full">
@@ -137,7 +136,9 @@ const goToEditProfile = (section) => {
           <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
             درباره من
           </h5>
-          <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
+          <button @click="goToEditProfile('summary')">
+            <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+          </button>
         </div>
         <p class="text-[16px] leading-[140%] text-gray800 font-medium">{{ summary }}</p>
       </componentProfile>
@@ -150,7 +151,9 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           تجربه کاری
         </h5>
-        <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
+        <button @click="goToEditProfile('workExperience')">
+          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+        </button>
       </div>
 
       <div
@@ -203,7 +206,9 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           پروژه ها
         </h5>
-        <PencilSquareIcon class="w-[30px] text-primary500 cursor-pointer" />
+        <button @click="goToEditProfile('projects')">
+          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+        </button>
       </div>
 
       <div

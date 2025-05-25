@@ -9,6 +9,7 @@ import MessagesIdView from '@/views/MessagesIdView.vue'
 import ApplyWithCVView from '@/views/ApplyWithCVView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import EditBasicInfoView from '@/views/EditBasicInfoView.vue'
+import EditContactInfoView from '@/views/EditContactInfoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,9 +55,14 @@ const router = createRouter({
       component: ProfileView,
     },
     {
-      path: '/edit-Profile/basicInfo',
+      path: '/editProfile/:section',
       name: 'editProfile',
       component: EditBasicInfoView,
+    },
+    {
+      path: '/editProfile/:section',
+      name: 'contactInfo',
+      component: EditContactInfoView,
     },
     {
       path: '/:catchAll(.*)',
