@@ -214,13 +214,10 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           پروژه ها
         </h5>
-        <button @click="goToEditProfile('projects')">
-          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
-        </button>
       </div>
 
       <div
-        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full"
+        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full relative"
         :class="{
           'border-b border-gray-300 pb-5': projects.indexOf(project) !== projects.length - 1,
         }"
@@ -255,6 +252,9 @@ const goToEditProfile = (section) => {
             >لینک پروژه</a
           >
         </div>
+        <button @click="goToEditProfile('projects')" class="absolute top-0 left-0">
+          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+        </button>
       </div>
     </componentProfile>
 
