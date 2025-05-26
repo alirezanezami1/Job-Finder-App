@@ -158,13 +158,10 @@ const goToEditProfile = (section) => {
         <h5 class="font-bold text-[20px] leading-[120%] text-gray900 w-full text-right">
           تجربه کاری
         </h5>
-        <button @click="goToEditProfile('workExperience')">
-          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
-        </button>
       </div>
 
       <div
-        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full"
+        class="flex flex-col justify-center items-start gap-3 pr-[2px] w-full relative"
         :class="{
           'border-b border-gray-300 pb-5':
             workExperience.indexOf(work) !== workExperience.length - 1,
@@ -203,6 +200,10 @@ const goToEditProfile = (section) => {
           <ChatBubbleBottomCenterTextIcon class="w-[50px]" />
           <p class="text-[16px] leading-[140%] text-gray800 font-normal">{{ work.description }}</p>
         </div>
+
+        <button @click="goToEditProfile('workExperience')" class="absolute top-0 left-0">
+          <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
+        </button>
       </div>
     </componentProfile>
 
