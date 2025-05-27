@@ -201,7 +201,10 @@ const goToEditProfile = (section) => {
           <p class="text-[16px] leading-[140%] text-gray800 font-normal">{{ work.description }}</p>
         </div>
 
-        <button @click="goToEditProfile('workExperience')" class="absolute top-0 left-0">
+        <button
+          @click="router.push(`/editProfile/workExperience/${work.id}`)"
+          class="absolute top-0 left-0"
+        >
           <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
         </button>
       </div>

@@ -74,7 +74,7 @@ const router = createRouter({
     },
 
     {
-      path: '/editProfile/workExperience',
+      path: '/editProfile/workExperience/:id',
       name: 'editWorkExperience',
       component: EditWorkExpView,
     },

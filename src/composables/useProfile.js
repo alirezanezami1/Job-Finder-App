@@ -18,6 +18,7 @@ export function useProfile() {
 
     workExperience: [
       {
+        id: 1,
         title: 'فرانت اند دولوپر (vue)',
         company: 'فلان شرکت',
         startDate: '1404/1/1',
@@ -28,6 +29,7 @@ export function useProfile() {
         location: 'تهران',
       },
       {
+        id: 2,
         title: 'فرانت اند دولوپر - Nuxt',
         company: 'فلان شرکت',
         startDate: '1403/5/21',
