@@ -2,8 +2,7 @@
 import SaveBtnView from '@/components/SaveBtnView.vue'
 import { ref } from 'vue'
 import DatePicker from 'vue3-persian-datetime-picker'
-import { ArrowRightIcon, TrashIcon } from '@heroicons/vue/24/outline'
-import { ArrowDownCircleIcon } from '@heroicons/vue/24/solid'
+import { ArrowRightIcon, TrashIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { useRouter } from 'vue-router'
 
 const show = ref(false)
@@ -55,9 +54,9 @@ const goBack = () => {
           id="my-custom-editable-input"
           disabled
         />
-        <ArrowDownCircleIcon
+        <ChevronDownIcon
           @click="show = true"
-          class="cursor-pointer absolute w-[20px] left-3 top-1/2"
+          class="cursor-pointer absolute w-[17px] left-3 top-[52%]"
         />
         <date-picker
           :show="show"
@@ -79,9 +78,9 @@ const goBack = () => {
           id="my-custom-editable-input2"
           disabled
         />
-        <ArrowDownCircleIcon
+        <ChevronDownIcon
           @click="show2 = true"
-          class="cursor-pointer absolute w-[20px] left-3 top-1/2"
+          class="cursor-pointer absolute w-[17px] left-3 top-[52%]"
         />
         <date-picker
           :show="show2"
