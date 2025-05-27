@@ -45,19 +45,19 @@ const goBack = () => {
       />
     </div>
 
-    <div class="flex justify-center items-center gap-4 w-full relative">
+    <div class="flex justify-center items-center gap-4 w-full">
       <div class="flex flex-col justify-center items-start gap-4 w-full relative">
         <p class="text-[16px] leading-[140%] text-gray800 font-medium">تاریخ شروع</p>
         <input
           type="text"
-          class="flex gap-3 p-5 rounded-2xl bg-gray50 w-[180px] h-[56px] focus:outline-none placeholder:text-gray500 relative"
+          class="flex gap-3 p-5 rounded-2xl bg-gray50 w-[160px] h-[56px] focus:outline-none placeholder:text-gray500 relative"
           placeholder="از"
           id="my-custom-editable-input"
           disabled
         />
         <ArrowDownCircleIcon
           @click="show = true"
-          class="cursor-pointer absolute w-[20px] left-2 top-1/2"
+          class="cursor-pointer absolute w-[20px] left-3 top-1/2"
         />
         <date-picker
           :show="show"
@@ -74,14 +74,14 @@ const goBack = () => {
 
         <input
           type="text"
-          class="flex gap-3 p-5 rounded-2xl bg-gray50 w-[180px] h-[56px] focus:outline-none placeholder:text-gray500 relative"
+          class="flex gap-3 p-5 rounded-2xl bg-gray50 w-[160px] h-[56px] focus:outline-none placeholder:text-gray500 relative"
           placeholder="تا"
           id="my-custom-editable-input2"
           disabled
         />
         <ArrowDownCircleIcon
           @click="show2 = true"
-          class="cursor-pointer absolute w-[20px] left-2 top-1/2"
+          class="cursor-pointer absolute w-[20px] left-3 top-1/2"
         />
         <date-picker
           :show="show2"
