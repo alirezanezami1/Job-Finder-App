@@ -103,7 +103,7 @@ const showModal = () => {
             <option value="Front-End Developer">Front-End Developer</option>
             <option value="Back-End Developer">Back-End Developer</option>
           </select>
-          <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none w-[24px]">
+          <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none w-[20px]">
             <ChevronDownIcon />
           </div>
         </div>
