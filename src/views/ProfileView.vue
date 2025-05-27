@@ -56,7 +56,7 @@ const projects = computed(() => {
   return profile.value.projects
 })
 
-const goToEditProfile = (section) => {
+const goToEditProfile = (section, id) => {
   const routeNames = {
     basicInfo: 'editBasicInfo',
     contactInfo: 'editContactInfo',
@@ -64,7 +64,7 @@ const goToEditProfile = (section) => {
     workExperience: 'editWorkExperience',
     summary: 'editSummary',
   }
-  router.push({ name: routeNames[section], params: { section } })
+  router.push({ name: routeNames[section], params: { section, id } })
 }
 </script>
 
@@ -202,7 +202,7 @@ const goToEditProfile = (section) => {
         </div>
 
         <button
-          @click="router.push(`/editProfile/workExperience/${work.id}`)"
+          @click="goToEditProfile('workExperience', `${work.id}`)"
           class="absolute top-0 left-0"
         >
           <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
