@@ -32,6 +32,7 @@ const summary = computed(() => {
         type="text"
         v-model="summary"
         class="flex gap-3 p-5 h-[300px] resize-none rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
+        maxlength="300"
         placeholder="حداکثر 300 کارکتر"
       />
     </div>
