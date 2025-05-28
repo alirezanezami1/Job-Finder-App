@@ -68,7 +68,7 @@ const router = createRouter({
       component: EditContactInfoView,
     },
     {
-      path: '/editProfile/projects',
+      path: '/editProfile/projects/:id',
       name: 'editProjects',
       component: EditProjectsInfoView,
     },

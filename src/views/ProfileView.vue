@@ -261,7 +261,7 @@ const goToEditProfile = (section, id) => {
             >لینک پروژه</a
           >
         </div>
-        <button @click="goToEditProfile('projects')" class="absolute top-0 left-0">
+        <button @click="goToEditProfile('projects', `${project.id}`)" class="absolute top-0 left-0">
           <PencilSquareIcon class="w-[20px] text-primary500 cursor-pointer" />
         </button>
       </div>
