@@ -112,9 +112,10 @@ const selectCity = (city) => {
         <date-picker
           :show="show"
           :editable="true"
-          format="YYYY-MM-DD"
-          display-format="jYYYY/jMM/jDD"
+          format="YYYY-MM"
+          display-format="jYYYY/jMM"
           custom-input="#my-custom-editable-input"
+          type="year-month"
           simple
           @close="show = false"
         />
@@ -138,9 +139,10 @@ const selectCity = (city) => {
         <date-picker
           :show="show2"
           :editable="true"
-          format="YYYY-MM-DD"
-          display-format="jYYYY/jMM/jDD"
+          format="YYYY-MM"
+          display-format="jYYYY/jMM"
           custom-input="#my-custom-editable-input2"
+          type="year-month"
           simple
           @close="show2 = false"
           :disabled="isStillWorking"
