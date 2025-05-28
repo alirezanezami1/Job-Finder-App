@@ -13,6 +13,7 @@ import {
   ChatBubbleBottomCenterTextIcon,
   CodeBracketIcon,
   LinkIcon,
+  UserCircleIcon,
 } from '@heroicons/vue/24/outline'
 import { ref } from 'vue'
 
@@ -230,6 +231,11 @@ const goToEditProfile = (section, id) => {
         <div class="flex justify-center items-start gap-4">
           <CodeBracketIcon class="w-[20px]" />
           <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ project.name }}</p>
+        </div>
+
+        <div class="flex justify-center items-start gap-4">
+          <UserCircleIcon class="w-[20px]" />
+          <p class="text-[16px] leading-[140%] text-gray900 font-normal">{{ project.role }}</p>
         </div>
 
         <div class="flex justify-center items-start gap-4">

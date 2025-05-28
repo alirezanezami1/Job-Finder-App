@@ -44,6 +44,7 @@ export function useProfile() {
     projects: [
       {
         name: 'پروژه فلان',
+        role: 'برنامه نویس فرانت',
         description: 'پروژه فلان با فلان تکنولوژی و فلان کتابخانه توسعه داده شده.',
         startDate: '1403/09',
         endDate: '1404/02',
