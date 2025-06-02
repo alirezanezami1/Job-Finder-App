@@ -26,10 +26,10 @@ const form = ref({
 
 const saveProfile = () => {
   updateProfileSection('basicInfo', {
-    ...profile.value.basicInfo,
     firstName: form.value.firstName,
     lastName: form.value.lastName,
     currentPosition: form.value.currentPosition,
+    summary: profile.value.basicInfo.summary // حفظ مقدار summary از اطلاعات قبلی
   })
   router.push({ name: 'profile' })
   toast.success('تغییرات با موفقیت ذخیره شد!', {

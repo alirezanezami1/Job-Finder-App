@@ -56,9 +56,11 @@ export function useProfile() {
 
   const updateProfileSection = (section, data) => {
     if (Array.isArray(profile.value[section])) {
-      profile.value[section] = [...data]
+      // برای آرایه‌ها، مقادیر جدید را مستقیماً جایگزین می‌کنیم
+      profile.value[section] = data
     } else {
-      profile.value[section] = { ...profile.value[section], ...data }
+      // برای آبجکت‌ها، مقادیر جدید را با مقادیر قبلی ادغام می‌کنیم
+      profile.value[section] = { ...data }
     }
   }
 
