@@ -16,7 +16,7 @@ const goBack = () => {
 }
 
 const section = route.params.section || 'basicInfo'
-console.log(section)
+// console.log(section)
 
 const form = ref({
   firstName: profile.value.basicInfo.firstName,
