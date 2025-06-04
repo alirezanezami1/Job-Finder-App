@@ -15,9 +15,6 @@ const goBack = () => {
   router.back()
 }
 
-const section = route.params.section || 'basicInfo'
-// console.log(section)
-
 const form = ref({
   firstName: profile.value.basicInfo.firstName,
   lastName: profile.value.basicInfo.lastName,
@@ -29,7 +26,7 @@ const saveProfile = () => {
     firstName: form.value.firstName,
     lastName: form.value.lastName,
     currentPosition: form.value.currentPosition,
-    summary: profile.value.basicInfo.summary // حفظ مقدار summary از اطلاعات قبلی
+    summary: profile.value.basicInfo.summary, 
   })
   router.push({ name: 'profile' })
   toast.success('تغییرات با موفقیت ذخیره شد!', {
