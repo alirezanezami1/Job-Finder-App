@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { useProfile } from '@/composables/useProfile'
 import SaveBtnView from '../components/SaveBtnView.vue'
 import { useToast } from 'vue-toastification'
 import { useRoute, useRouter } from 'vue-router'
+import axios from 'axios'
 const { profile, updateProfileSection } = useProfile()
 
 const toast = useToast()
@@ -39,6 +40,27 @@ const showModal = () => {
     toastClassName: 'notificationCustomize',
   })
 }
+
+const data = ref([
+  {
+    firstName: '',
+    lastName: '',
+    currentPosition: '',
+  },
+])
+
+async function fetchData() {
+  try {
+    const response = await axios.get('https://ee6ba7e61dd6d50f.mokky.dev/Profile-BasicInfo')
+    data.value = response.data
+  } catch {
+    toast.error('خطا در اتصال به شبکه', {
+      toastClassName: 'notificationCustomizeError',
+    })
+  }
+}
+
+onMounted(fetchData)
 </script>
 
 <template>
@@ -71,7 +93,7 @@ const showModal = () => {
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام</p>
         <input
           type="text"
-          v-model="form.firstName"
+          v-model="data[0].firstName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام شما"
         />
@@ -81,7 +103,7 @@ const showModal = () => {
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام خانوادگی</p>
         <input
           type="text"
-          v-model="form.lastName"
+          v-model="data[0].lastName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام خانوادگی شما"
         />
@@ -92,7 +114,7 @@ const showModal = () => {
         <div class="relative w-full">
           <select
             name="currentPosition"
-            v-model="form.currentPosition"
+            v-model="data[0].currentPosition"
             id="positions"
             class="flex px-5 pl-8 py-4 rounded-2xl cursor-pointer bg-gray50 w-full focus:outline-none appearance-none"
           >
