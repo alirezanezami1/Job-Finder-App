@@ -26,7 +26,7 @@ const saveProfile = () => {
     firstName: form.value.firstName,
     lastName: form.value.lastName,
     currentPosition: form.value.currentPosition,
-    summary: profile.value.basicInfo.summary, 
+    summary: profile.value.basicInfo.summary,
   })
   router.push({ name: 'profile' })
   toast.success('تغییرات با موفقیت ذخیره شد!', {

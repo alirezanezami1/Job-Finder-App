@@ -56,22 +56,18 @@ export function useProfile() {
 
   const updateProfileSection = (section, data) => {
     if (Array.isArray(profile.value[section])) {
-      // برای آرایه‌ها، مقادیر جدید را مستقیماً جایگزین می‌کنیم
       profile.value[section] = data
     } else {
-      // برای آبجکت‌ها، مقادیر جدید را با مقادیر قبلی ادغام می‌کنیم
       profile.value[section] = { ...data }
     }
   }
 
-  // متد برای اضافه کردن آیتم به لیست‌ها (مثل تجربه کاری یا تحصیلات)
   const addToProfileSection = (section, item) => {
     if (Array.isArray(profile.value[section])) {
       profile.value[section].push(item)
     }
   }
 
-  // متد برای حذف آیتم از لیست‌ها
   const removeFromProfileSection = (section, index) => {
     if (Array.isArray(profile.value[section])) {
       profile.value[section].splice(index, 1)
