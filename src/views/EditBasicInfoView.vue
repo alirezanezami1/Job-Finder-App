@@ -1,38 +1,34 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
-import { useProfile } from '@/composables/useProfile'
 import SaveBtnView from '../components/SaveBtnView.vue'
 import { useToast } from 'vue-toastification'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import axios from 'axios'
-const { profile, updateProfileSection } = useProfile()
 
 const toast = useToast()
 const router = useRouter()
-const route = useRoute()
 
 const goBack = () => {
   router.back()
 }
 
-const form = ref({
-  firstName: profile.value.basicInfo.firstName,
-  lastName: profile.value.basicInfo.lastName,
-  currentPosition: profile.value.basicInfo.currentPosition,
-})
-
-const saveProfile = () => {
-  updateProfileSection('basicInfo', {
-    firstName: form.value.firstName,
-    lastName: form.value.lastName,
-    currentPosition: form.value.currentPosition,
-    summary: profile.value.basicInfo.summary,
-  })
-  router.push({ name: 'profile' })
-  toast.success('تغییرات با موفقیت ذخیره شد!', {
-    toastClassName: 'notificationCustomize',
-  })
+const saveProfile = async () => {
+  try {
+    await axios.patch('https://ee6ba7e61dd6d50f.mokky.dev/Profile-BasicInfo/1', {
+      firstName: data.value[0].firstName,
+      lastName: data.value[0].lastName,
+      currentPosition: data.value[0].currentPosition,
+    })
+    router.push({ name: 'profile' })
+    toast.success('تغییرات با موفقیت ذخیره شد!', {
+      toastClassName: 'notificationCustomize',
+    })
+  } catch {
+    toast.error('خطا در ذخیره تغییرات!', {
+      toastClassName: 'notificationCustomizeError',
+    })
+  }
 }
 
 const showModal = () => {
