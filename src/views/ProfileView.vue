@@ -24,7 +24,6 @@ import { computed } from 'vue'
 
 const router = useRouter()
 const { profile } = useProfile()
-// /
 
 const fullName = computed(() => {
   return `${profile.value.basicInfo.firstName} ${profile.value.basicInfo.lastName}`.trim()
