@@ -32,6 +32,7 @@ const fullName = computed(() => {
 const currentPosition = computed(() => {
   return `${profile.value.basicInfo.currentPosition}`.trim()
 })
+// / s
 
 const summary = computed(() => {
   return `${profile.value.basicInfo.summary}`.trim()
