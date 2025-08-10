@@ -1,15 +1,22 @@
 <script setup>
 import SaveBtnView from '@/components/SaveBtnView.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import DatePicker from 'vue3-persian-datetime-picker'
 import { ArrowRightIcon, TrashIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
 import { MapPinIcon } from '@heroicons/vue/24/solid'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useCity } from '@/composables/useCity'
+
+import { useProfile } from '../composables/useProfile'
+
+const { profile } = useProfile()
 
 const show = ref(false)
 const show2 = ref(false)
 const isStillWorking = ref(false)
+
+const route = useRoute()
+const workExpId = route.params.id
 
 const router = useRouter()
 const goBack = () => {
@@ -25,6 +32,17 @@ const selectCity = (city) => {
   searchQuery.value = city
   showDropdown.value = false
 }
+
+const getWorkExp = () => {
+  const workExp = profile.value.workExperience.find((exp) => exp.id === Number(workExpId))
+  if (!workExp) {
+    router.push({ name: 'notFound' })
+  }
+}
+
+onMounted(() => {
+  getWorkExp()
+})
 </script>
 
 <template>
