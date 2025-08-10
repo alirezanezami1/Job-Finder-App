@@ -4,8 +4,10 @@ import { MapPinIcon, EnvelopeIcon } from '@heroicons/vue/24/solid'
 import { useRouter } from 'vue-router'
 import { useProfile } from '../composables/useProfile'
 import { useToast } from 'vue-toastification'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import SaveBtnView from '@/components/SaveBtnView.vue'
+import { useCity } from '@/composables/useCity'
+
 const { profile } = useProfile()
 
 const contactInfo = ref({
@@ -19,46 +21,7 @@ const router = useRouter()
 const searchQuery = ref(contactInfo.value.address || '')
 const showDropdown = ref(false)
 
-const iranianCities = [
-  'تهران',
-  'مشهد',
-  'اصفهان',
-  'کرج',
-  'شیراز',
-  'تبریز',
-  'قم',
-  'اهواز',
-  'کرمانشاه',
-  'ارومیه',
-  'رشت',
-  'زاهدان',
-  'همدان',
-  'کرمان',
-  'یزد',
-  'اردبیل',
-  'بندرعباس',
-  'اراک',
-  'زنجان',
-  'ساری',
-  'قزوین',
-  'گرگان',
-  'خرم‌آباد',
-  'سنندج',
-  'بجنورد',
-  'بیرجند',
-  'سمنان',
-  'شهرکرد',
-  'یاسوج',
-  'ایلام',
-  'بوشهر',
-]
-
-const filteredCities = computed(() => {
-  if (!searchQuery.value) return []
-  return iranianCities.filter((city) =>
-    city.toLowerCase().includes(searchQuery.value.toLowerCase()),
-  )
-})
+const { filteredCities } = useCity(searchQuery)
 
 const selectCity = (city) => {
   searchQuery.value = city

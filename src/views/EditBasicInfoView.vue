@@ -4,10 +4,11 @@ import { ArrowRightIcon, PencilIcon, ChevronDownIcon } from '@heroicons/vue/24/o
 import SaveBtnView from '../components/SaveBtnView.vue'
 import { useToast } from 'vue-toastification'
 import { useRouter } from 'vue-router'
-import axios from 'axios'
+import { useProfile } from '../composables/useProfile'
 
 const toast = useToast()
 const router = useRouter()
+const { profile } = useProfile()
 
 const goBack = () => {
   router.back()
@@ -15,11 +16,6 @@ const goBack = () => {
 
 const saveProfile = async () => {
   try {
-    await axios.patch('https://ee6ba7e61dd6d50f.mokky.dev/Profile-BasicInfo/1', {
-      firstName: data.value[0].firstName,
-      lastName: data.value[0].lastName,
-      currentPosition: data.value[0].currentPosition,
-    })
     router.push({ name: 'profile' })
     toast.success('تغییرات با موفقیت ذخیره شد!', {
       toastClassName: 'notificationCustomize',
@@ -37,26 +33,23 @@ const showModal = () => {
   })
 }
 
-const data = ref([
-  {
-    firstName: '',
-    lastName: '',
-    currentPosition: '',
-  },
-])
+const formData = ref({
+  firstName: '',
+  lastName: '',
+  currentPosition: '',
+})
 
-async function fetchData() {
-  try {
-    const response = await axios.get('https://ee6ba7e61dd6d50f.mokky.dev/Profile-BasicInfo')
-    data.value = response.data
-  } catch {
-    toast.error('خطا در اتصال به شبکه', {
-      toastClassName: 'notificationCustomizeError',
-    })
+const loadProfileData = () => {
+  formData.value = {
+    firstName: profile.value.basicInfo.firstName || '',
+    lastName: profile.value.basicInfo.lastName || '',
+    currentPosition: profile.value.basicInfo.currentPosition || '',
   }
 }
 
-onMounted(fetchData)
+onMounted(() => {
+  loadProfileData()
+})
 </script>
 
 <template>
@@ -89,7 +82,7 @@ onMounted(fetchData)
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام</p>
         <input
           type="text"
-          v-model="data[0].firstName"
+          v-model="formData.firstName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام شما"
         />
@@ -99,7 +92,7 @@ onMounted(fetchData)
         <p class="text-[16px] leading-[140%] text-gray800 font-normal">نام خانوادگی</p>
         <input
           type="text"
-          v-model="data[0].lastName"
+          v-model="formData.lastName"
           class="flex gap-3 px-5 py-4 rounded-2xl bg-gray50 w-full focus:outline-none placeholder:text-gray500"
           placeholder="نام خانوادگی شما"
         />
@@ -110,7 +103,7 @@ onMounted(fetchData)
         <div class="relative w-full">
           <select
             name="currentPosition"
-            v-model="data[0].currentPosition"
+            v-model="formData.currentPosition"
             id="positions"
             class="flex px-5 pl-8 py-4 rounded-2xl cursor-pointer bg-gray50 w-full focus:outline-none appearance-none"
           >
