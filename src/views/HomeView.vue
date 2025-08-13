@@ -57,7 +57,10 @@ const greeting = computed(() => {
 
     <!-- /// search  -->
     <div class="w-full flex justify-center items-center gap-3 bg-gray100 px-5 py-2 rounded-2xl">
-      <AdjustmentsHorizontalIcon class="w-[22px] text-primary500 cursor-pointer" />
+      <AdjustmentsHorizontalIcon
+        class="w-[22px] text-primary500 cursor-pointer"
+        v-tooltip:bottom="`فیلتر`"
+      />
       <input
         type="text"
         placeholder="عنوان شغلی یا شرکت"

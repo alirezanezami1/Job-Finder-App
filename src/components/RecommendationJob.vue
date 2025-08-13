@@ -29,6 +29,11 @@ const lastFiveJobs = computed(() => jobs.value.slice(-5))
     <swiper :slides-per-view="1.1" :space-between="10" v-else class="w-full">
       <swiper-slide
         v-for="job in lastFiveJobs"
+        :autoplay="{
+          delay: 2500,
+          disableOnInteraction: false,
+        }"
+        :loop="true"
         :key="job.id"
         class="p-5 border rounded-[28px] flex flex-col justify-center items-center gap-3"
       >
