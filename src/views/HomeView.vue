@@ -4,6 +4,7 @@ import { AdjustmentsHorizontalIcon } from '@heroicons/vue/24/outline'
 import { BellIcon } from '@heroicons/vue/24/outline'
 import BannerHome from '@/components/BannerHome.vue'
 import RecommendationJob from '@/components/RecommendationJob.vue'
+import InfiniteSlider from '@/components/InfiniteSlider.vue'
 import AllJobs from '@/components/AllJobs.vue'
 import NavbarMenu from '@/components/NavbarMenu.vue'
 import { RouterLink } from 'vue-router'
@@ -49,6 +50,7 @@ const greeting = computed(() => {
       <RouterLink
         to="/Notification"
         class="p-3 w-[48px] relative border-2 rounded-full flex justify-center items-center"
+        v-tooltip:bottom="`اعلان`"
       >
         <BellIcon class="w-[24px]" />
         <div class="w-[6px] h-[6px] bg-error rounded-full absolute left-4 top-3"></div>
@@ -74,6 +76,9 @@ const greeting = computed(() => {
 
     <!-- /// Recommendation -->
     <RecommendationJob />
+
+    <!-- /// InfiniteSlider  -->
+    <InfiniteSlider />
 
     <!-- /// AllJobs  -->
     <AllJobs />

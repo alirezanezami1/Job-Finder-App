@@ -15,7 +15,7 @@ export default {
           'text-sm',
           'font-semibold',
           'bg-primary100',
-          'text-black',
+          'text-gray700',
           'rounded-md',
           'opacity-0',
           'pointer-events-none',
