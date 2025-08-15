@@ -5,3 +5,23 @@
     </div>
   </div>
 </template>
+
+<style>
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background: theme('colors.primary400');
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary600');
+}
+</style>
