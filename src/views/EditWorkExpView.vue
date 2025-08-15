@@ -24,7 +24,6 @@ const formaData = ref({
 
 const show = ref(false)
 const show2 = ref(false)
-const isStillWorking = ref(false)
 
 const route = useRoute()
 const workExpId = route.params.id
